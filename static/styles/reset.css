@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Gowun Dodum', sans-serif;
+    line-height: 1.2;
+}
+input,select,button {
+    display: inline-block;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    font: inherit;
+    vertical-align: top;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+input::placeholder,
+input::-webkit-input-placeholder {
+	color: #c2c2c2;
+}
+.blind {
+    overflow: hidden !important;
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    clip: rect(0 0 0 0) !important;
+}
