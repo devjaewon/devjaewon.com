@@ -19,6 +19,9 @@ a {
     text-decoration: none;
     color: inherit;
 }
+em {
+    font-style: normal;
+}
 input::placeholder,
 input::-webkit-input-placeholder {
 	color: #c2c2c2;

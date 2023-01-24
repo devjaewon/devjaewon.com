@@ -3,53 +3,71 @@
         <img
             class="img"
             src="/images/logo_black_transparent.png"
-            width=32
-            height=32
+            width=24
+            height=24
             alt="로고"
         >
         <span class="text">DEVJAEWON</span>
     </div>
-    <div class="link-records">
-        <a class="link" href="/">기록</a>
+    <div class="link-wrap">
+        <ul class="link-list">
+            <li class="link-item">
+                <a class="link" href="/notes">노트</a>
+            </li>
+            <li class="link-item">
+                <a class="link" href="/articles">글</a>
+            </li>
+        </ul>
     </div>
 </div>
 
-<style>
+<style lang="scss">
 .root {
-    height: 60px;
-    padding: 14px;
-}
-.root::after {
-    content: '';
-    display: block;
-    clear: both;
+    padding: 10px;
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
 }
 .logo {
     float: left;
+    padding: 4px 0;
     font-size: 0;
+    .img {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        vertical-align: top;
+    }
+    .text {
+        display: inline-block;
+        margin-left: 4px;
+        font-size: 18px;
+        line-height: 24px;
+        vertical-align: top;
+    }
 }
-.logo .img {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    vertical-align: top;
-}
-.logo .text {
-    display: inline-block;
-    margin-left: 4px;
-    font-size: 20px;
-    line-height: 32px;
-    vertical-align: top;
-}
-.link-records {
+.link-wrap {
     float: right;
-}
-.link-records .link {
-    display: block;
-    padding: 0 14px;
-    border-radius: 2px;
-    background-color: #e3e3e3;
-    font-size: 15px;
-    line-height: 32px;
+    .link-list {
+        white-space: nowrap;
+        font-size: 0;
+    }
+    .link-item {
+        display: inline-block;
+        vertical-align: top;
+        &:nth-child(n+1) {
+            margin-left: 8px;
+        }
+    }
+    .link {
+        display: block;
+        padding: 0 14px;
+        border-radius: 2px;
+        background-color: #e3e3e3;
+        font-size: 15px;
+        line-height: 32px;
+    }
 }
 </style>
