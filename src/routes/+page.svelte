@@ -1,18 +1,16 @@
 <Header />
-<div class="profile">
-    <Profile />
-</div>
+<Main>
+    <Home slot="content" />
+</Main>
 
 <script>
-import Header from './Header.svelte';
-import Profile from './Profile.svelte';
+import Header from '@/components/common/Header.svelte';
+import Main from '@/components/common/Main.svelte';
+import Home from '@/components/Home/Home.svelte';
 </script>
 
 <style>
 :global(body) {
     background-color: #fdfeff;
-}
-.profile {
-    margin-top: 24px;
 }
 </style>
