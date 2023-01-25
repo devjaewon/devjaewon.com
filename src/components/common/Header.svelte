@@ -7,7 +7,11 @@
             height=24
             alt="로고"
         >
-        <span class="text">DEVJAEWON</span>
+        <img
+            class="text-img"
+            src="/images/devjaewon.svg"
+            alt="devjaewon"
+        >
     </div>
     <div class="link-wrap">
         <ul class="link-list">
@@ -40,11 +44,10 @@
         height: 24px;
         vertical-align: top;
     }
-    .text {
+    .text-img {
         display: inline-block;
-        margin-left: 4px;
-        font-size: 18px;
-        line-height: 24px;
+        height: 15px;
+        margin: 5px 0 0 4px;
         vertical-align: top;
     }
 }

@@ -1,4 +1,4 @@
-<div class="root">
+<section class="root">
     <div class="area-img">
         <div class="figure">
             <img
@@ -11,12 +11,12 @@
         </div>
     </div>
     <div class="area-desc">
-        <strong class="name">김재원</strong>
+        <h2 class="name">김재원</h2>
         <em class="role"><span class="text">소프트웨어 엔지니어</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">needs-oriented,</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">fe-focused</span></em>
+        <em class="role role-sub"><span class="text">#</span><span class="text">fe-focused,</span></em>
+        <em class="role role-sub"><span class="text">#</span><span class="text">needs-oriented</span></em>
     </div>
-</div>
+</section>
 
 <style lang="scss">
 .root {
