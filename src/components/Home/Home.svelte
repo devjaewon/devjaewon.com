@@ -1,20 +1,20 @@
 <div class="profile">
     <Profile />
 </div>
-<div class="introduce">
-    <Introduce />
+<div class="about-me">
+    <AboutMe />
 </div>
 
 <script>
 import Profile from "./Profile.svelte";
-import Introduce from "./Introduce.svelte";
+import AboutMe from "./AboutMe.svelte";
 </script>
 
 <style lang="scss">
 .profile {
     margin-top: 24px;
 }
-.introduce {
-    margin-top: 20px;
+.about-me {
+    margin-top: 28px;
 }
 </style>

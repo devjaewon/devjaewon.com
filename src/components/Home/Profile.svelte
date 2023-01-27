@@ -5,7 +5,7 @@
                 class="img"
                 src="/images/profile.jpg"
                 width=68
-                height=68s
+                height=68
                 alt="프로필"
             >
         </div>
@@ -13,8 +13,8 @@
     <div class="area-desc">
         <h2 class="name">김재원</h2>
         <em class="role"><span class="text">소프트웨어 엔지니어</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">fe-focused,</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">needs-oriented</span></em>
+        <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused,</span></em>
+        <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>
     </div>
 </section>
 
@@ -29,6 +29,7 @@
 }
 .area-img {
     float: left;
+    padding-top: 1px;
     .figure {
         overflow: hidden;
         position: relative;
@@ -59,6 +60,7 @@
     .name {
         display: block;
         margin-bottom: 8px;
+        font-family: 'GowunDodum', sans-serif;
         font-size: 18px;
     }
 }
@@ -66,6 +68,7 @@
     display: block;
     .text {
         display: inline-block;
+        font-family: 'GowunDodum', sans-serif;
         font-size: 14px;
         line-height: 20px;
         color: #7b7b7b;
@@ -73,12 +76,10 @@
     }
 }
 .role-sub {
-    display: inline-block;
-    &+& {
-        margin-left: 4px;
-    }
+    display: block;
     .text {
         display: inline-block;
+        font-family: 'GowunDodum', sans-serif;
         font-size: 13px;
         line-height: 17px;
         color: #7b7b7b;

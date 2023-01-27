@@ -10,6 +10,8 @@
         <img
             class="text-img"
             src="/images/devjaewon.svg"
+            width=100
+            height=16
             alt="devjaewon"
         >
     </div>
@@ -36,7 +38,7 @@
 }
 .logo {
     float: left;
-    padding: 4px 0;
+    padding: 3px 0 4px;
     font-size: 0;
     .img {
         display: inline-block;
@@ -47,7 +49,7 @@
     .text-img {
         display: inline-block;
         height: 15px;
-        margin: 5px 0 0 4px;
+        margin: 6px 0 0 4px;
         vertical-align: top;
     }
 }
@@ -69,6 +71,7 @@
         padding: 0 14px;
         border-radius: 2px;
         background-color: #e3e3e3;
+        font-weight: 700;
         font-size: 15px;
         line-height: 32px;
     }

@@ -1,13 +1,6 @@
 @font-face {
-    font-family: 'NanumSquareNeo';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'RIDIBatang';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
-    font-weight: normal;
+    font-family: 'GowunDodum';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
     font-style: normal;
 }
 * {
@@ -16,8 +9,11 @@
     padding: 0;
 }
 body {
-    font-family: 'RIDIBatang', sans-serif;
+    font-family: 'GowunDodum', sans-serif;
     line-height: 1.2;
+}
+ul, ol {
+    list-style: none;
 }
 input,select,button {
     display: inline-block;
