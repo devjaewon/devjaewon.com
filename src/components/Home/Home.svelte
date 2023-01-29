@@ -24,6 +24,6 @@ import WorkExperience from "./WorkExperience.svelte";
     margin-top: 28px;
 }
 .section {
-    margin-top: 60px;
+    margin-top: 44px;
 }
 </style>

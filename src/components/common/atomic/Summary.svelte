@@ -1,16 +1,20 @@
 <div class="summary">
-    <p class="text">{text}</p>
+    {#each paragraphs as paragraph}
+    <p class="text">&nbsp;{paragraph}</p>
+    {/each}
 </div>
 
 <script lang="ts">
-export let text = '';
+export let paragraphs: Array<string> = [];
 </script>
 
-<style>
+<style lang="scss">
 .text {
-    white-space: pre-wrap;
     font-size: 15px;
     line-height: 23px;
     color: #333;
+    &+& {
+        margin-top: 8px;
+    }
 }
 </style>

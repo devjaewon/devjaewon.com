@@ -85,7 +85,7 @@ function _computeDescOpacity(x: number) {
     cursor: pointer;
     .text {
         display: inline-block;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 24px;
         font-weight: 700;
         vertical-align: top;

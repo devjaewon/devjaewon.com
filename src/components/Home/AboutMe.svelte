@@ -1,7 +1,9 @@
 <section class="about-me">
     <SectionTitle text={"About me"} />
     <div class="summary">
-        <Summary text={" 책과 기술을 좋아하며, 아침 운동 후 커피 한잔과 함께 책이나 메일 정리로 하루를 시작하는 것을 좋아합니다."} />
+        <Summary
+            paragraphs={["책과 기술을 좋아하며, 아침 운동 후 커피 한잔과 함께 책이나 메일 정리로 하루를 시작하는 것을 좋아합니다."]}
+        />
     </div>
     <div class="as-engineer">
         <AccordionList
