@@ -1,20 +1,29 @@
-<div class="profile">
-    <Profile />
-</div>
-<div class="about-me">
-    <AboutMe />
+<div class="home">
+    <div class="area-profile">
+        <Profile />
+    </div>
+    <div class="area-about-me">
+        <AboutMe />
+    </div>
+    <div class="section">
+        <WorkExperience />
+    </div>
 </div>
 
-<script>
-import Profile from "./Profile.svelte";
+<script lang="ts">
 import AboutMe from "./AboutMe.svelte";
+import Profile from "./Profile.svelte";
+import WorkExperience from "./WorkExperience.svelte";
 </script>
 
 <style lang="scss">
-.profile {
+.area-profile {
     margin-top: 24px;
 }
-.about-me {
+.area-about-me {
     margin-top: 28px;
+}
+.section {
+    margin-top: 60px;
 }
 </style>

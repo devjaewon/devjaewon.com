@@ -1,4 +1,4 @@
-<section class="root">
+<section class="profile">
     <div class="area-img">
         <div class="figure">
             <img
@@ -19,7 +19,7 @@
 </section>
 
 <style lang="scss">
-.root {
+.profile {
     padding: 0 22px;
     &::after {
         content: '';
@@ -61,7 +61,7 @@
         display: block;
         margin-bottom: 8px;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 18px;
+        font-size: 20px;
     }
 }
 .role {
@@ -69,8 +69,8 @@
     .text {
         display: inline-block;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 14px;
-        line-height: 20px;
+        font-size: 15px;
+        line-height: 23px;
         color: #7b7b7b;
         vertical-align: top;
     }
@@ -80,7 +80,7 @@
     .text {
         display: inline-block;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 13px;
+        font-size: 14px;
         line-height: 17px;
         color: #7b7b7b;
         vertical-align: top;
