@@ -1,4 +1,4 @@
-<div class="accordion-description">
+<div class="work-projects">
     <button class="button" type="button" on:click={handleClickButton}>
         <span class="text">{buttonText}</span>
     </button>
@@ -39,8 +39,6 @@ function handleClickButton() {
 }
 
 function transitionDesc(elDesc: HTMLElement): TransitionConfig {
-    const barH = elDesc.offsetHeight + 17;
-
     return {
         delay: 0,
         duration,
@@ -71,7 +69,7 @@ function _computeDescOpacity(x: number) {
 </script>
 
 <style lang="scss">
-.accordion-description {
+.work-projects {
     position: relative;
 }
 .button {
@@ -84,11 +82,14 @@ function _computeDescOpacity(x: number) {
     text-align: left;
     cursor: pointer;
     .text {
-        display: inline-block;
-        font-size: 15px;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        font-size: 16px;
         line-height: 24px;
         font-weight: 700;
-        vertical-align: top;
+        white-space: nowrap;
+        text-overflow: ellipsis;
         color: #000;
     }
 }
@@ -110,10 +111,9 @@ function _computeDescOpacity(x: number) {
     padding-left: 10px;
     .desc {
         border-radius: 2px;
-        padding: 12px 14px;
-        background-color: #f3f3f3;
+        padding: 4px 14px 12px;
         font-size: 15px;
-        line-height: 23px;
+        line-height: 1.6;
         white-space: pre-wrap;
         color: #333;
     }

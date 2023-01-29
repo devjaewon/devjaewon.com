@@ -6,14 +6,14 @@
         <AboutMe />
     </div>
     <div class="section">
-        <WorkExperience />
+        <WorkExperiences />
     </div>
 </div>
 
 <script lang="ts">
 import AboutMe from "./AboutMe.svelte";
 import Profile from "./Profile.svelte";
-import WorkExperience from "./WorkExperience.svelte";
+import WorkExperiences from "./WorkExperiences.svelte";
 </script>
 
 <style lang="scss">

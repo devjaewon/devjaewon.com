@@ -4,17 +4,19 @@
             <img
                 class="img"
                 src="/images/profile.jpg"
-                width=68
-                height=68
+                width=84
+                height=84
                 alt="프로필"
             >
         </div>
     </div>
     <div class="area-desc">
         <h2 class="name">김재원</h2>
-        <em class="role"><span class="text">소프트웨어 엔지니어</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused,</span></em>
-        <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>
+        <em class="role"><span class="text">소프트웨어 개발자</span></em>
+        <div class="role-subs">
+            <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused,</span></em>
+            <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>
+        </div>
     </div>
 </section>
 
@@ -33,8 +35,8 @@
     .figure {
         overflow: hidden;
         position: relative;
-        width: 68px;
-        height: 68px;
+        width: 84px;
+        height: 84px;
         border-radius: 50%;
         &::after {
             content: '';
@@ -49,8 +51,8 @@
     }
     .img {
         display: block;
-        width: 68px;
-        height: 68px;
+        width: 100%;
+        height: 100%;
     }
 }
 .area-desc {
@@ -59,9 +61,9 @@
     font-size: 0;
     .name {
         display: block;
-        margin-bottom: 8px;
+        margin-bottom: 4px;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 .role {
@@ -69,20 +71,26 @@
     .text {
         display: inline-block;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 23px;
-        color: #7b7b7b;
+        color: #555;
         vertical-align: top;
     }
 }
+.role-subs {
+    margin-top: 4px;
+}
 .role-sub {
     display: block;
+    &:first-child {
+        margin-top: 8px;
+    }
     .text {
         display: inline-block;
         font-family: 'GowunDodum', sans-serif;
-        font-size: 14px;
-        line-height: 17px;
-        color: #7b7b7b;
+        font-size: 15px;
+        line-height: 1.3;
+        color: #999;
         vertical-align: top;
     }
     .text + .text {

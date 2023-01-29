@@ -173,6 +173,7 @@ function _computeDescOpacity(x: number) {
             font-size: 15px;
             letter-spacing: 0.5px;
             line-height: 24px;
+            word-break: keep-all;
             color: #333;
             opacity: 0;
         }

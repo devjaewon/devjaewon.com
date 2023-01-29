@@ -4,7 +4,7 @@
 
 <style lang="scss">
 .root {
-    max-width: 475px;
+    max-width: 500px;
     margin: 0 auto;
 }
 </style>

@@ -10,8 +10,8 @@ export let paragraphs: Array<string> = [];
 
 <style lang="scss">
 .text {
-    font-size: 15px;
-    line-height: 23px;
+    font-size: 16px;
+    line-height: 1.6;
     color: #333;
     &+& {
         margin-top: 8px;

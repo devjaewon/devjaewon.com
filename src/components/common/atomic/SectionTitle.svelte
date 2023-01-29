@@ -28,7 +28,7 @@ export let text = '';
     top: 8px;
     left: -5px;
     border-top: 5px solid transparent;
-    border-right: 5px solid #333;
+    border-right: 5px solid #658864;
     border-bottom: 5px solid transparent;
     border-left: 5px solid transparent;
 }
@@ -38,7 +38,7 @@ export let text = '';
     border-top: 5px solid transparent;
     border-right: 5px solid transparent;
     border-bottom: 5px solid transparent;
-    border-left: 5px solid #333;
+    border-left: 5px solid #658864;
 }
 .dashed-bar {
     flex-grow: 1;
@@ -48,22 +48,19 @@ export let text = '';
         width: 100%;
         height: 1px;
         margin-top: 13px;
-        background-image: linear-gradient(to right, #333 40%, rgba(255,255,255,0) 0%);
-        background-position: bottom;
-        background-size: 6px 1px;
-        background-repeat: repeat-x;
+        border-bottom: 0.5px solid #658864;
     }
 }
 .text {
     flex-grow: 0;
     height: 24px;
-    padding: 0 8px;
+    padding: 0 10px;
     background-color: #fdfeff;
     font-family: 'GowunDodum', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 25px;
     vertical-align: top;
-    color: #000;
+    color: #4E6C50;
 }
 </style>
