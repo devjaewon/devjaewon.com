@@ -14,7 +14,7 @@
         <h2 class="name">김재원</h2>
         <em class="role"><span class="text">소프트웨어 개발자</span></em>
         <div class="role-subs">
-            <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused,</span></em>
+            <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused</span></em>
             <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>
         </div>
     </div>
@@ -62,7 +62,7 @@
     .name {
         display: block;
         margin-bottom: 4px;
-        font-family: 'GowunDodum', sans-serif;
+        font-weight: 500;
         font-size: 22px;
     }
 }
@@ -70,8 +70,7 @@
     display: block;
     .text {
         display: inline-block;
-        font-family: 'GowunDodum', sans-serif;
-        font-size: 18px;
+        font-size: 17px;
         line-height: 23px;
         color: #555;
         vertical-align: top;
@@ -82,14 +81,11 @@
 }
 .role-sub {
     display: block;
-    &:first-child {
-        margin-top: 8px;
-    }
     .text {
         display: inline-block;
-        font-family: 'GowunDodum', sans-serif;
-        font-size: 15px;
-        line-height: 1.3;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 1.4;
         color: #999;
         vertical-align: top;
     }

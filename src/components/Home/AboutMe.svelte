@@ -1,5 +1,5 @@
 <section class="about-me">
-    <SectionTitle text={"소개"} />
+    <SectionTitle text={"About me"} />
     <div class="content">
         <div class="summary">
             <Summary
@@ -30,12 +30,9 @@ import AccordionList from "@/components/common/AccordionList.svelte";
     padding: 0 14px;
 }
 .content {
-    padding: 0 4px;
-}
-.summary {
-    margin-top: 14px;
+    padding: 20px 4px 0;
 }
 .as-engineer {
-    margin-top: 14px;
+    margin-top: 16px;
 }
 </style>

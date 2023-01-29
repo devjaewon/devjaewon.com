@@ -1,6 +1,6 @@
 <div class="summary">
     {#each paragraphs as paragraph}
-    <p class="text">&nbsp;{paragraph}</p>
+    <p class="text">{paragraph}</p>
     {/each}
 </div>
 
@@ -10,9 +10,10 @@ export let paragraphs: Array<string> = [];
 
 <style lang="scss">
 .text {
+    font-weight: 400;
     font-size: 16px;
-    line-height: 1.6;
-    color: #333;
+    line-height: 1.55;
+    color: #555;
     &+& {
         margin-top: 8px;
     }

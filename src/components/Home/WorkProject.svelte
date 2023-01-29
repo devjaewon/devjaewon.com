@@ -1,4 +1,4 @@
-<div class="work-projects">
+<div class="work-project">
     <button class="button" type="button" on:click={handleClickButton}>
         <span class="text">{buttonText}</span>
     </button>
@@ -69,7 +69,7 @@ function _computeDescOpacity(x: number) {
 </script>
 
 <style lang="scss">
-.work-projects {
+.work-project {
     position: relative;
 }
 .button {
@@ -85,9 +85,9 @@ function _computeDescOpacity(x: number) {
         display: block;
         width: 100%;
         overflow: hidden;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 24px;
-        font-weight: 700;
+        font-weight: 500;
         white-space: nowrap;
         text-overflow: ellipsis;
         color: #000;
@@ -113,9 +113,9 @@ function _computeDescOpacity(x: number) {
         border-radius: 2px;
         padding: 4px 14px 12px;
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 1.55;
         white-space: pre-wrap;
-        color: #333;
+        color: #555;
     }
 }
 </style>

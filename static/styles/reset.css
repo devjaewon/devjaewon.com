@@ -1,6 +1,22 @@
 @font-face {
-    font-family: 'GowunDodum';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/GowunDodum-Regular.woff') format('woff');
+    font-family: 'SpoqaHanSansNeo';
+    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Light.woff2') format('woff2'),
+        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SpoqaHanSansNeo';
+    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'SpoqaHanSansNeo';
+    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Medium.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
 }
 * {
@@ -9,7 +25,7 @@
     padding: 0;
 }
 body {
-    font-family: 'GowunDodum', sans-serif;
+    font-family: 'SpoqaHanSansNeo', sans-serif;
     line-height: 1.2;
 }
 ul, ol {

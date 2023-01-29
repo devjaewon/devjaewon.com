@@ -1,5 +1,5 @@
 <section class="work-experiences">
-    <SectionTitle text="경력" />
+    <SectionTitle text="Work experiences" />
     <div class="list-box">
         <ul class="list">
             {#each workExperiences as workExperience}
@@ -22,10 +22,9 @@ import { workExperiences } from "@/static/workExperiences";
     padding: 0 14px;
 }
 .list-box {
-    margin-top: 18px;
+    margin-top: 20px;
     .item + .item {
-        margin-top: 20px;
-        padding-top: 18px;
+        margin-top: 40px;
     }
 }
 </style>

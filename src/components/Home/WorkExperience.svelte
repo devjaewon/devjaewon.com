@@ -11,9 +11,10 @@
         </div>
     </div>
     <div class="area-projects">
+        <h3 class="project-title">@What i did</h3>
         {#each data.projects as project}
         <div class="project">
-            <WorkProjects
+            <WorkProject
                 buttonText={project.title}
                 description={project.description}
             />
@@ -24,7 +25,7 @@
 
 <script lang="ts">
 import Summary from "@/components/common/atomic/Summary.svelte";
-import WorkProjects from "@/components/Home/WorkProjects.svelte";
+import WorkProject from "@/components/Home/WorkProject.svelte";
 import type { WorkExperience } from "@/types/struct";
 
 export let data: WorkExperience = {
@@ -42,9 +43,10 @@ export let data: WorkExperience = {
 }
 .period {
     display: block;
+    font-weight: 300;
     font-size: 15px;
     letter-spacing: 1px;
-    color: #777;
+    color: #000;
 }
 .title {
     display: block;
@@ -54,22 +56,25 @@ export let data: WorkExperience = {
     text-overflow: ellipsis;
     .corp {
         display: inline-block;
-        font-size: 21px;
+        font-weight: 500;
+        font-size: 20px;
         line-height: 28px;
         vertical-align: top;
         color: #000;
     }
     .div {
         display: inline-block;
-        width: 1px;
+        width: 2px;
         height: 15px;
-        margin: 9px 5px 0;
+        border-radius: 1.5px;
+        margin: 8px 6px 0;
         background-color: #000;
-        transform: rotate(25deg);
+        transform: rotate(20deg);
     }
     .position {
         display: inline-block;
         margin-top: 7px;
+        font-weight: 500;
         font-size: 17px;
         line-height: 18px;
         vertical-align: top;
@@ -77,16 +82,27 @@ export let data: WorkExperience = {
     }
 }
 .summary {
-    margin-top: 10px;
+    margin-top: 16px;
 }
 .area-projects {
-    margin-top: 16px;
-    padding: 12px 8px;
-    background-color: #F8F4EA;
+    position: relative;
+    margin-top: 28px;
+    padding: 18px 14px 14px;
+    border: 0.5px solid #333;
+    .project-title {
+        position: absolute;
+        top: -12px;
+        left: 8px;
+        padding: 0 8px;
+        background-color: #fdfeff;
+        font-weight: 300;
+        font-size: 16px;
+        color: #777;
+    }
 }
 .project {
     &+& {
-        margin-top: 12px;
+        margin-top: 4px;
     }
 }
 </style>

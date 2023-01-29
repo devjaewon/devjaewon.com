@@ -2,7 +2,7 @@
     <div class="area-profile">
         <Profile />
     </div>
-    <div class="area-about-me">
+    <div class="section">
         <AboutMe />
     </div>
     <div class="section">
@@ -20,10 +20,7 @@ import WorkExperiences from "./WorkExperiences.svelte";
 .area-profile {
     margin-top: 24px;
 }
-.area-about-me {
-    margin-top: 28px;
-}
 .section {
-    margin-top: 44px;
+    margin-top: 60px;
 }
 </style>

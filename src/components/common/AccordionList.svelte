@@ -123,9 +123,9 @@ function _computeDescOpacity(x: number) {
     cursor: pointer;
     .text {
         display: inline-block;
+        font-weight: 500;
         font-size: 16px;
         line-height: 24px;
-        font-weight: 700;
         vertical-align: top;
         color: #000;
     }
@@ -166,7 +166,7 @@ function _computeDescOpacity(x: number) {
             left: 0;
             width: 0;
             height: 1px;
-            background-color: #333;
+            background-color: #555;
         }
         .desc {
             display: block;
@@ -174,7 +174,7 @@ function _computeDescOpacity(x: number) {
             letter-spacing: 0.5px;
             line-height: 24px;
             word-break: keep-all;
-            color: #333;
+            color: #555;
             opacity: 0;
         }
     }
