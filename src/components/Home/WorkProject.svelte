@@ -107,11 +107,12 @@ function _computeDescOpacity(x: number) {
     }
 }
 .area-desc {
-    margin-top: 6px;
+    margin-top: 10px;
     padding-left: 10px;
+    padding-bottom: 14px;
     .desc {
         border-radius: 2px;
-        padding: 4px 14px 12px;
+        padding: 0 14px;
         font-size: 15px;
         line-height: 1.55;
         white-space: pre-wrap;

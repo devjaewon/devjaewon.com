@@ -7,13 +7,19 @@
             <span class="position">{data.position}</span>
         </strong>
         <div class="summary">
-            <Summary paragraphs={data.summary} />
+            <Summary paragraphs={[data.summary]} />
         </div>
     </div>
-    <div class="area-projects">
-        <h3 class="project-title">@What i did</h3>
+    <div class="sub-section">
+        <h3 class="sub-section-title">@Role</h3>
+        <div class="content">
+            <Summary small={true} paragraphs={[data.role]} />
+        </div>
+    </div>
+    <div class="sub-section">
+        <h3 class="sub-section-title">@What i developed</h3>
         {#each data.projects as project}
-        <div class="project">
+        <div class="content">
             <WorkProject
                 buttonText={project.title}
                 description={project.description}
@@ -32,7 +38,8 @@ export let data: WorkExperience = {
     period: '',
     corp: '',
     position: '',
-    summary: [],
+    summary: '',
+    role: '',
     projects: [],
 }
 </script>
@@ -65,31 +72,30 @@ export let data: WorkExperience = {
     .div {
         display: inline-block;
         width: 2px;
-        height: 15px;
+        height: 16px;
         border-radius: 1.5px;
-        margin: 8px 6px 0;
+        margin: 6px 6px 0;
         background-color: #000;
         transform: rotate(20deg);
     }
     .position {
         display: inline-block;
-        margin-top: 7px;
         font-weight: 500;
-        font-size: 17px;
-        line-height: 18px;
+        font-size: 20px;
+        line-height: 28px;
         vertical-align: top;
         color: #000;
     }
 }
 .summary {
-    margin-top: 16px;
+    margin-top: 12px;
 }
-.area-projects {
+.sub-section {
     position: relative;
     margin-top: 28px;
     padding: 18px 14px 14px;
     border: 0.5px solid #333;
-    .project-title {
+    .sub-section-title {
         position: absolute;
         top: -12px;
         left: 8px;
@@ -97,11 +103,9 @@ export let data: WorkExperience = {
         background-color: #fdfeff;
         font-weight: 300;
         font-size: 16px;
-        color: #777;
+        color: #555;
     }
-}
-.project {
-    &+& {
+    .content + .content {
         margin-top: 4px;
     }
 }

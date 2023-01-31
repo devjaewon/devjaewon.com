@@ -52,7 +52,7 @@ function handleClickButton() {
 function transitionList(node: HTMLElement): TransitionConfig {
     const elItemBars = Array.prototype.slice.call(elList.querySelectorAll(".vbar"));
     const elDescriptions = Array.prototype.slice.call(elList.querySelectorAll(".desc"));
-    const barH = node.offsetHeight - 18;
+    const barH = node.offsetHeight - 12;
 
     return {
         delay: 0,
@@ -124,7 +124,7 @@ function _computeDescOpacity(x: number) {
     .text {
         display: inline-block;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 15px;
         line-height: 24px;
         vertical-align: top;
         color: #000;
@@ -153,7 +153,7 @@ function _computeDescOpacity(x: number) {
 }
 .area-list {
     position: relative;
-    margin-top: 6px;
+    margin-top: 12px;
 }
 .list {
     padding-left: 10px;
@@ -179,7 +179,7 @@ function _computeDescOpacity(x: number) {
         }
     }
     .item + .item {
-        margin-top: 2px;
+        margin-top: 8px;
     }
 }
 </style>

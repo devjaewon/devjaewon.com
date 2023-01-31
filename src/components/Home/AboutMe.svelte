@@ -8,12 +8,8 @@
         </div>
         <div class="as-engineer">
             <AccordionList
-                buttonText={"지향점"}
-                items={[
-                    { text: "기술 자체보다 고객과 효용을 바라보려 합니다" },
-                    { text: "지표 기반의 의사결정과 지속적 개선을 고민합니다" },
-                    { text: "제품의 성장과 함께, 팀의 유대와 개개인의 성장 또한 동반되어야 한다고 생각합니다" },
-                ]}
+                buttonText={"개발자로서"}
+                items={asEngineer}
             />
         </div>
     </div>
@@ -23,6 +19,7 @@
 import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
 import Summary from "@/components/common/atomic/Summary.svelte";
 import AccordionList from "@/components/common/AccordionList.svelte";
+import { asEngineer } from "@/static/asEnginner";
 </script>
 
 <style lang="scss">
