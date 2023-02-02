@@ -179,7 +179,7 @@ function _computeDescOpacity(x: number) {
         }
     }
     .item + .item {
-        margin-top: 8px;
+        margin-top: 4px;
     }
 }
 </style>
