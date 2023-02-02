@@ -1,12 +1,7 @@
-<Header />
-<Main>
-    <Home slot="content" />
-</Main>
+<App />
 
 <script>
-import Header from '@/components/common/Header.svelte';
-import Main from '@/components/common/Main.svelte';
-import Home from '@/components/home/Home.svelte';
+import App from "@/components/home/App.svelte";
 
 export const ssr = true;
 export const csr = false;
