@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import Summary from "@/components/common/atomic/Summary.svelte";
-import WorkProject from "@/components/Home/WorkProject.svelte";
+import WorkProject from "@/components/home/WorkProject.svelte";
 import type { WorkExperience } from "@/types/struct";
 
 export let data: WorkExperience = {
