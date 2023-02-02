@@ -1,3 +1,3 @@
 # devjaewon.com
 
-personal website for archiving a life.
+personal website for managing and archiving a life.

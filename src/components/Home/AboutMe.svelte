@@ -27,7 +27,7 @@ import { asEngineer } from "@/static/asEnginner";
     padding: 0 14px;
 }
 .content {
-    padding: 20px 4px 0;
+    padding: 16px 4px 0;
 }
 .as-engineer {
     margin-top: 16px;

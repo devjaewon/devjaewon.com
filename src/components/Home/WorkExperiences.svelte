@@ -22,7 +22,7 @@ import { workExperiences } from "@/static/workExperiences";
     padding: 0 14px;
 }
 .list-box {
-    margin-top: 20px;
+    margin-top: 16px;
     .item + .item {
         margin-top: 40px;
     }
