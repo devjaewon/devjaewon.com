@@ -1,3 +1,5 @@
+export * from "@prisma/client";
+
 export interface AsEngineer {
     text: string;
 }
