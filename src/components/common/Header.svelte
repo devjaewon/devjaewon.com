@@ -2,7 +2,7 @@
     <div class="logo">
         <img
             class="img"
-            src="/images/logo_black_transparent.png"
+            src="/images/logo.svg"
             width=24
             height=24
             alt="로고"
@@ -49,7 +49,7 @@
     .text-img {
         display: inline-block;
         height: 15px;
-        margin: 6px 0 0 4px;
+        margin: 6px 0 0 6px;
         vertical-align: top;
     }
 }
