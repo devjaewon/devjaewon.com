@@ -4,7 +4,9 @@
         <ul class="list">
             {#each workExperiences as workExperience}
             <li class="history-line">
-                <img class="icon" src="/images/arrow_up.png" width="28" height="28" alt="">
+                <span class="circle"></span>
+                <span class="circle"></span>
+                <span class="circle"></span>
             </li>
             <li class="item">
                 <WorkExperience data={workExperience} />
@@ -29,17 +31,17 @@ import { workExperiences } from "@/static/workExperiences";
     .history-line {
         position: relative;
         height: 80px;
+        padding-top: 12px;
         &:first-child {
             display: none;
         }
-        .icon {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 28px;
-            height: 28px;
-            margin: -14px 0 0 -14px;
+        .circle {
+            display: block;
+            width: 6px;
+            height: 6px;
+            margin: 8px auto;
+            border-radius: 50%;
+            background-color: #cacaca;
         }
     }
 }

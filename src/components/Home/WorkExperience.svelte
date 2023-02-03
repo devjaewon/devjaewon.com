@@ -1,11 +1,26 @@
 <div class="work-experience">
     <div class="main">
-        <em class="period">{data.period}</em>
-        <strong class="title">
-            <span class="corp">{data.corp}</span>
-            <span class="div"></span>
-            <span class="position">{data.position}</span>
-        </strong>
+        <div class="heading">
+            <div class="logo-wrap">
+                <div class={data.logo.useBorder ? "logo use-border" : "logo"}>
+                    <img
+                        class="img"
+                        src={data.logo.imageUrl}
+                        alt=""
+                        width=50
+                        height=50
+                    >
+                </div>
+            </div>
+            <div class="info">
+                <em class="period">{data.period}</em>
+                <strong class="title">
+                    <span class="corp">{data.corp}</span>
+                    <span class="div"></span>
+                    <span class="position">{data.position}</span>
+                </strong>
+            </div>
+        </div>
         <div class="summary">
             <Summary paragraphs={[data.summary]} />
         </div>
@@ -36,6 +51,10 @@ import type { WorkExperience } from "@/types/struct";
 
 export let data: WorkExperience = {
     period: '',
+    logo: {
+        imageUrl: '',
+        useBorder: false,
+    },
     corp: '',
     position: '',
     summary: '',
@@ -45,6 +64,42 @@ export let data: WorkExperience = {
 </script>
 
 <style lang="scss">
+.heading {
+    .logo-wrap {
+        float: left;
+        padding-right: 12px;
+    }
+    .logo {
+        overflow: hidden;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        .img {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+        &.use-border::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            border: 1px solid rgba(0, 0, 0, 0.4);
+            border-radius: 50%;
+        }
+    }
+    .info {
+        overflow: hidden;
+    }
+    &::after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+}
 .period {
     display: block;
     font-weight: 300;

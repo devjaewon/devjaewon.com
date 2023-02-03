@@ -18,10 +18,10 @@
     <div class="link-wrap">
         <ul class="link-list">
             <li class="link-item">
-                <a class="link" href="/notes">노트</a>
+                <a class="link" href="/notes">필기노트</a>
             </li>
             <li class="link-item">
-                <a class="link" href="/articles">글</a>
+                <a class="link" href="/articles">기록</a>
             </li>
         </ul>
     </div>

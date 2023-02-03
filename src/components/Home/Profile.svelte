@@ -4,8 +4,8 @@
             <img
                 class="img"
                 src="/images/profile.jpg"
-                width=84
-                height=84
+                width=94
+                height=94
                 alt="프로필"
             >
         </div>
@@ -35,8 +35,8 @@
     .figure {
         overflow: hidden;
         position: relative;
-        width: 84px;
-        height: 84px;
+        width: 94px;
+        height: 94px;
         border-radius: 50%;
         &::after {
             content: '';
@@ -90,7 +90,7 @@
     .text {
         display: inline-block;
         font-weight: 300;
-        font-size: 14px;
+        font-size: 15px;
         line-height: 1.4;
         color: #999;
         vertical-align: top;

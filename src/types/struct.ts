@@ -11,6 +11,10 @@ export interface WorkProject {
 
 export interface WorkExperience {
     period: string;
+    logo: {
+        imageUrl: string;
+        useBorder: boolean;
+    }
     corp: string;
     position: string;
     summary: string;

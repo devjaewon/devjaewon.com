@@ -3,8 +3,12 @@ import type { WorkExperience } from "@/types/struct";
 export const workExperiences: Array<WorkExperience> = [
     {
         period: '2022.09 -',
+        logo: {
+            imageUrl: '/images/logo_petbeceo.png',
+            useBorder: true,
+        },
         corp: '펫비서',
-        position: '공동 창업자',
+        position: 'Co-founder',
         summary: '수의사, 엔지니어 지인 4명과 함께 고양이의 일상 데이터를 활용해 건강을 예측하는 펫테크 기업을 공동창업 했습니다.',
         role: '소프트웨어를 전반적으로 책임지며 의견 조율, 기술스택 선정, 그리고 개발 모두 하고 있습니다.',
         projects: [
@@ -24,6 +28,10 @@ export const workExperiences: Array<WorkExperience> = [
     },
     {
         period: '2020.01 - 2022.08',
+        logo: {
+            imageUrl: '/images/logo_naver.png',
+            useBorder: false,
+        },
         corp: 'NAVER',
         position: 'Search FE',
         summary: '네이버 검색 서비스의 FE 개발을 전담하고, 전사 FE 오픈소스를 관리하는 팀에서 소프트웨어를 개발했습니다.',
@@ -49,6 +57,10 @@ export const workExperiences: Array<WorkExperience> = [
     },
     {
         period: '2017.07 - 2019.02',
+        logo: {
+            imageUrl: '/images/logo_naver.png',
+            useBorder: false,
+        },
         corp: 'N Tech Service',
         position: 'UIT',
         summary: '네이버 대부분 서비스의 마크업을 최적화하고 고도화 하는 팀에서 소프트웨어를 개발했습니다.',
