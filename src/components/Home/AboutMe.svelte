@@ -1,5 +1,5 @@
 <section class="about-me">
-    <SectionTitle text={"About me"} />
+    <SectionTitle text="소개" />
     <div class="content">
         <div class="summary">
             <Summary
@@ -24,10 +24,10 @@ import { asEngineer } from "@/static/asEnginner";
 
 <style lang="scss">
 .about-me {
-    padding: 0 14px;
+    padding: 0 16px;
 }
 .content {
-    padding: 16px 4px 0;
+    padding-top: 14px;
 }
 .as-engineer {
     margin-top: 16px;

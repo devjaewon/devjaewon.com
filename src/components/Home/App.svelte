@@ -4,11 +4,13 @@
         <div class="area-profile">
             <Profile />
         </div>
-        <div class="section">
-            <AboutMe />
-        </div>
-        <div class="section">
-            <WorkExperiences />
+        <div class="sections">
+            <div class="section">
+                <AboutMe />
+            </div>
+            <div class="section">
+                <WorkExperiences />
+            </div>
         </div>
     </div>
 </Main>
@@ -26,6 +28,9 @@ import WorkExperiences from "./WorkExperiences.svelte";
     margin-top: 24px;
 }
 .section {
-    margin-top: 60px;
+    margin-top: 80px;
+    &:first-child {
+        margin-top: 40px;
+    }
 }
 </style>

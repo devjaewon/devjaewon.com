@@ -113,7 +113,7 @@ function _computeDescOpacity(x: number) {
     .desc {
         border-radius: 2px;
         padding: 0 14px;
-        font-size: 15px;
+        font-size: 14px;
         line-height: 1.55;
         white-space: pre-wrap;
         color: #555;

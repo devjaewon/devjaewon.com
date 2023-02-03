@@ -6,7 +6,7 @@ export const workExperiences: Array<WorkExperience> = [
         corp: '펫비서',
         position: '공동 창업자',
         summary: '수의사, 엔지니어 지인 4명과 함께 고양이의 일상 데이터를 활용해 건강을 예측하는 펫테크 기업을 공동창업 했습니다.',
-        role: '전반적인 소프트웨어 영역을 책임지고 있으며 의견 조율, 기술스택 선정, 그리고 개발 모두 하고 있습니다.',
+        role: '소프트웨어를 전반적으로 책임지며 의견 조율, 기술스택 선정, 그리고 개발 모두 하고 있습니다.',
         projects: [
             {
                 title: '고양이 건강관리 IoT 시스템',
@@ -26,7 +26,7 @@ export const workExperiences: Array<WorkExperience> = [
         period: '2020.01 - 2022.08',
         corp: 'NAVER',
         position: 'Search FE',
-        summary: '네이버 검색 서비스의 FE 개발을 전담하고, 전사 FE 오픈소스를 관리하는 팀에 소속되어 있었습니다.',
+        summary: '네이버 검색 서비스의 FE 개발을 전담하고, 전사 FE 오픈소스를 관리하는 팀에서 소프트웨어를 개발했습니다.',
         role: '이미지 검색과 스마트렌즈 검색을 담당 했으며 렌더링 최적화, 장애 모니터링, 디자인 시스템 등 서비스 전반적인 고도화에도 참여 했습니다.',
         projects: [
             {
@@ -43,7 +43,28 @@ export const workExperiences: Array<WorkExperience> = [
             },
             {
                 title: '사내 E2E 테스트 강좌 개설',
-                description: '개인적인 E2E 테스트에 대한 고찰과 Cypress의 설계 철학, 응용법 등을 담은 초급 강좌를 개설했습니다. (나름 많은 좋아요를 받았습니다 ㅎㅎ)',
+                description: '개인적인 E2E 테스트에 대한 고찰과 Cypress의 설계 철학, 응용법 등을 담은 초급 강좌를 개설했습니다.',
+            },
+        ],
+    },
+    {
+        period: '2017.07 - 2019.02',
+        corp: 'N Tech Service',
+        position: 'UIT',
+        summary: '네이버 대부분 서비스의 마크업을 최적화하고 고도화 하는 팀에서 소프트웨어를 개발했습니다.',
+        role: '네이버 쇼핑 서비스의 마크업 개발을 담당했으며, 디자이너를 위한 시각적인 테스트를 자동화 했습니다.',
+        projects: [
+            {
+                title: '네이버 쇼핑 서비스',
+                description: '신규 서비스 또는 프로모션 페이지의 HTML/CSS를 개발했습니다.',
+            },
+            {
+                title: 'HTML 기반 협업구조에서 React 기반으로 전환',
+                description: 'HTML/SCSS/Gulp 베이스로 빌드해 마크업 결과를 전달하며 협업하는 구조를 React/SCSS/Webpack 베이스로 협업하는 구조로 개선했습니다.',
+            },
+            {
+                title: 'Static Site Generator',
+                description: '네이버 협업 방식에 특화된 HTML <template> 을 기반으로 동작하는 Static Site Generator를 개발했습니다.',
             }
         ],
     }

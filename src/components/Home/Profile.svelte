@@ -22,7 +22,7 @@
 
 <style lang="scss">
 .profile {
-    padding: 0 22px;
+    padding: 0 16px;
     &::after {
         content: '';
         display: block;
@@ -62,17 +62,22 @@
     .name {
         display: block;
         margin-bottom: 4px;
-        font-weight: 500;
+        font-family: 'Gowun Dodum', sans-serif;
+        font-weight: 700;
         font-size: 22px;
+        color: #000;
     }
 }
 .role {
     display: block;
+    padding-left: 1px;
     .text {
         display: inline-block;
+        font-family: 'Gowun Dodum', sans-serif;
+        font-weight: 700;
         font-size: 17px;
         line-height: 23px;
-        color: #555;
+        color: #5a5a5a;
         vertical-align: top;
     }
 }
@@ -81,6 +86,7 @@
 }
 .role-sub {
     display: block;
+    padding-left: 3px;
     .text {
         display: inline-block;
         font-weight: 300;

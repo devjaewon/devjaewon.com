@@ -11,13 +11,13 @@
         </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title">@Role</h3>
+        <h3 class="sub-section-title">@역할</h3>
         <div class="content">
             <Summary small={true} paragraphs={[data.role]} />
         </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title">@What i developed</h3>
+        <h3 class="sub-section-title">@개발한 것</h3>
         {#each data.projects as project}
         <div class="content">
             <WorkProject
@@ -45,9 +45,6 @@ export let data: WorkExperience = {
 </script>
 
 <style lang="scss">
-.main {
-    padding: 0 4px;
-}
 .period {
     display: block;
     font-weight: 300;
@@ -63,7 +60,7 @@ export let data: WorkExperience = {
     text-overflow: ellipsis;
     .corp {
         display: inline-block;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 20px;
         line-height: 28px;
         vertical-align: top;
@@ -71,7 +68,7 @@ export let data: WorkExperience = {
     }
     .div {
         display: inline-block;
-        width: 2px;
+        width: 3px;
         height: 16px;
         border-radius: 1.5px;
         margin: 6px 6px 0;
@@ -80,7 +77,7 @@ export let data: WorkExperience = {
     }
     .position {
         display: inline-block;
-        font-weight: 500;
+        font-weight: 700;
         font-size: 20px;
         line-height: 28px;
         vertical-align: top;
@@ -95,6 +92,7 @@ export let data: WorkExperience = {
     margin-top: 28px;
     padding: 18px 14px 14px;
     border: 0.5px solid #333;
+    border-radius: 2px;
     .sub-section-title {
         position: absolute;
         top: -12px;

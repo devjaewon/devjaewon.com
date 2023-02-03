@@ -9,7 +9,7 @@
         >
         <img
             class="text-img"
-            src="/images/devjaewon.svg"
+            src="/images/text_devjaewon.svg"
             width=100
             height=16
             alt="devjaewon"
@@ -71,6 +71,7 @@
         padding: 0 14px;
         border-radius: 2px;
         background-color: #e3e3e3;
+        font-family: 'Gowun Dodum', sans-serif;
         font-weight: 700;
         font-size: 15px;
         line-height: 32px;
