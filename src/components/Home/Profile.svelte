@@ -12,7 +12,7 @@
     </div>
     <div class="area-desc">
         <h2 class="name">김재원</h2>
-        <em class="role"><span class="text">소프트웨어 개발자</span></em>
+        <em class="role"><span class="text">소프트웨어 엔지니어</span></em>
         <div class="role-subs">
             <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused</span></em>
             <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>

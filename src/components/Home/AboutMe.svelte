@@ -8,7 +8,7 @@
         </div>
         <div class="as-engineer">
             <AccordionList
-                buttonText={"개발자로서"}
+                buttonText={"엔지니어로서"}
                 items={asEngineer}
             />
         </div>
