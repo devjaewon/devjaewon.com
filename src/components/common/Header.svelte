@@ -9,9 +9,9 @@
         >
         <img
             class="text-img"
-            src="/images/text_devjaewon.svg"
+            src="/images/text__devjaewon.svg"
             width=100
-            height=16
+            height=15
             alt="devjaewon"
         >
     </div>
