@@ -46,6 +46,7 @@ let elList: HTMLElement;
 let isOpened = false;
 
 function handleClickButton() {
+    console.log("click!");
     isOpened = !isOpened;
 }
 
