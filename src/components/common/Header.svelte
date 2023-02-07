@@ -1,4 +1,4 @@
-<div class="root">
+<div class="header">
     <div class="logo">
         <img
             class="img"
@@ -28,7 +28,7 @@
 </div>
 
 <style lang="scss">
-.root {
+.header {
     padding: 10px;
     &::after {
         content: '';
