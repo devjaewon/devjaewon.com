@@ -1,5 +1,5 @@
-<Snowing />
+<Space />
 
 <script lang="ts">
-import Snowing from "@/components/common/animation/Snowing.svelte";
+import Space from "@/components/common/animation/Space.svelte";
 </script>

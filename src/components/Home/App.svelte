@@ -46,6 +46,9 @@ function onClickBtnAnimationToggle() {
 </script>
 
 <style lang="scss">
+:global(body) {
+    background-color: #333;
+}
 .wrap {
     position: relative;
     background-color: #333;
