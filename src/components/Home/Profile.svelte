@@ -22,7 +22,6 @@
 
 <style lang="scss">
 .profile {
-    padding: 0 16px;
     &::after {
         content: '';
         display: block;

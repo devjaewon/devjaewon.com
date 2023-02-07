@@ -14,9 +14,6 @@
         </div>
         {/if}
         <div id="content" class="main">
-            <div class="area-profile">
-                <Profile />
-            </div>
             <div class="sections">
                 <div class="section">
                     <AboutMe />
@@ -81,13 +78,10 @@ function onClickBtnAnimationToggle() {
         background-color: #fffefd;
     }
 }
-.area-profile {
-    padding-top: 24px;
-}
 .section {
     margin-top: 80px;
     &:first-child {
-        margin-top: 40px;
+        margin-top: 12px;
     }
 }
 .btn-animation-toggle {

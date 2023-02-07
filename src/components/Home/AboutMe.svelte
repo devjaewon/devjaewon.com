@@ -1,5 +1,8 @@
 <section class="about-me">
     <SectionTitle text="소개" />
+    <div class="profile">
+        <Profile />
+    </div>
     <div class="content">
         <div class="summary">
             <Summary
@@ -20,14 +23,18 @@ import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
 import Summary from "@/components/common/atomic/Summary.svelte";
 import AccordionList from "@/components/common/AccordionList.svelte";
 import { asEngineer } from "@/static/asEnginner";
+import Profile from "./Profile.svelte";
 </script>
 
 <style lang="scss">
 .about-me {
     padding: 0 16px;
 }
+.profile {
+    padding-top: 32px;
+}
 .content {
-    padding-top: 14px;
+    padding-top: 20px;
 }
 .as-engineer {
     margin-top: 16px;
