@@ -19,24 +19,27 @@ interface State {
 export class StarsAnimation {
     static DOUBLE_RADIAN = Math.PI * 2;
 
+    private stars: Array<Star>;
     private states: Array<State>;
-    private len: number;
 
     constructor(
-        private stars: Array<Star>,
+        private starFactory: () => Star,
+        private count: number,
         private end: number,
-        private nextX: () => number,
     ) {
-        this.states = stars.map(star => ({
+        this.stars = [];
+        for (let i = 0; i < count; i++) {
+            this.stars[i] = starFactory();
+        }
+        this.states = this.stars.map(star => ({
             x: star.ix,
             y: star.iy,
             sx: rand(-1, 1),
         }));
-        this.len = stars.length;
     }
 
     draw(ctx: CanvasRenderingContext2D) {
-        for (let i = 0; i < this.len; i++) {
+        for (let i = 0; i < this.count; i++) {
             const gradient = ctx.createRadialGradient(
                 this.states[i].x,
                 this.states[i].y,
@@ -65,7 +68,7 @@ export class StarsAnimation {
     }
 
     next() {
-        for (let i = 0; i < this.len; i++) {
+        for (let i = 0; i < this.count; i++) {
             this.states[i].sx += this.stars[i].rx;
             if (this.states[i].sx >= StarsAnimation.DOUBLE_RADIAN) {
                 this.states[i].sx = 0;
@@ -74,7 +77,7 @@ export class StarsAnimation {
             this.states[i].x = this.stars[i].ix + (this.stars[i].wx * Math.sin(this.states[i].sx));
             this.states[i].y += this.stars[i].dy;
             if (this.states[i].y > this.end) {
-                this.stars[i].ix = this.nextX();
+                this.stars[i] = this.starFactory();
                 this.states[i].x = this.stars[i].ix;
                 this.states[i].y = -50;
             }

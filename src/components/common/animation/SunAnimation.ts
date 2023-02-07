@@ -32,12 +32,14 @@ const sunAroundInlineSVG = `<svg version="1.1" xmlns="http://www.w3.org/2000/svg
 export class SunAnimation {
     static DOUBLE_RADIAN = Math.PI * 2;
 
+    private sun: Sun;
     private state: State;
     private arroundImage?: HTMLImageElement;
 
     constructor(
-        private sun: Sun,
+        private sunFactory: () => Sun,
     ) {
+        this.sun = this.sunFactory();
         this.state = {
             arroundRotate: 0,
             arroundScale: 1,

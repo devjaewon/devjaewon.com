@@ -69,60 +69,52 @@ function initSize() {
 }
 
 function initStarsAnimation() {
-    const stars = [];
-    for (let i = 0; i < starsCount; i++) {
-        stars[i] = createStar();
+    const starFactory = (): Star => {
+        const side = Math.round(rand(0, 1));
+        const isLeftSide = side === 0;
+
+        const mid = _.width / 2;
+        const chalf = _.contentWidth / 2;
+        const padding = 30;
+        const ix = isLeftSide ? rand(0, mid - chalf - padding) : rand(mid + chalf + padding, _.width);
+
+        return {
+            radius: rand(1.5, 3.2),
+            ix,
+            rx: rand(0.005, 0.02),
+            wx: rand(0, 15),
+            iy: rand(0, 1) * _.height,
+            dy: rand(0.3, 0.6),
+            opacity: rand(0, 1),
+        }
     }
 
     _.starsAnimation = new StarsAnimation(
-        stars,
+        starFactory,
+        starsCount,
         _.height,
-        getInitialX,
     );
 }
 
 async function initSunAnimation() {
-    const x = (_.width - _.contentWidth) * 0.5 * 0.4;
-    const sun: Sun = {
-        x,
-        y: 120,
-        radius: 33,
-        arround: {
-            radius: 63,
-            rotateVelocity: 0.2,
-        },
-    };
+    const sunFactory = (): Sun => {
+        const x = (_.width - _.contentWidth) * 0.5 * 0.4;
+        const sun: Sun = {
+            x,
+            y: 120,
+            radius: 33,
+            arround: {
+                radius: 63,
+                rotateVelocity: 0.2,
+            },
+        };
 
-    _.sunAnimation = new SunAnimation(sun)
+        return sun;
+    }
+
+    _.sunAnimation = new SunAnimation(sunFactory);
 
     return _.sunAnimation.init();
-
-}
-
-function getInitialX(): number {
-    const side = Math.round(rand(0, 1));
-    const isLeftSide = side === 0;
-
-    const mid = _.width / 2;
-    const chalf = _.contentWidth / 2;
-    const padding = 30;
-    const ix = isLeftSide ? rand(0, mid - chalf - padding) : rand(mid + chalf + padding, _.width);
-
-    return ix;
-}
-
-function createStar(): Star {
-    const ix = getInitialX();
-
-    return {
-        radius: rand(1.5, 3.2),
-        ix,
-        rx: rand(0.005, 0.02),
-        wx: rand(0, 15),
-        iy: rand(0, 1) * _.height,
-        dy: rand(0.3, 0.6),
-        opacity: rand(0, 1),
-    }
 }
 
 function clear() {
