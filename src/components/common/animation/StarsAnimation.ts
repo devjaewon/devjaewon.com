@@ -25,6 +25,7 @@ export class StarsAnimation {
     constructor(
         private stars: Array<Star>,
         private end: number,
+        private nextX: () => number,
     ) {
         this.states = stars.map(star => ({
             x: star.ix,
@@ -73,8 +74,9 @@ export class StarsAnimation {
             this.states[i].x = this.stars[i].ix + (this.stars[i].wx * Math.sin(this.states[i].sx));
             this.states[i].y += this.stars[i].dy;
             if (this.states[i].y > this.end) {
+                this.stars[i].ix = this.nextX();
                 this.states[i].x = this.stars[i].ix;
-                this.states[i].y = this.stars[i].iy;
+                this.states[i].y = -50;
             }
         }
     }
