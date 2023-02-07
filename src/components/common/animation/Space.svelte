@@ -4,10 +4,12 @@
 import { browser } from "$app/environment";
 import { debounce, rand } from "@/utils";
 import { onMount, onDestroy } from "svelte";
+import { MeteorAnimation, type Meteor } from "./MeteorAnimation";
 import { StarsAnimation, type Star } from "./StarsAnimation";
 import { SunAnimation, type Sun } from "./SunAnimation";
 
 export let starsCount = 150;
+export let meteorsCount = 3;
 
 let elCanvas: HTMLCanvasElement;
 
@@ -17,6 +19,7 @@ const _ = {
     width: 0,
     height: 0,
     starsAnimation: null as unknown as StarsAnimation,
+    meteorAnimation: null as unknown as MeteorAnimation,
     sunAnimation: null as unknown as SunAnimation,
     play: false,
 };
@@ -25,6 +28,7 @@ const handleResize = debounce(() => {
     clear();
     initSize();
     initStarsAnimation();
+    initMeteorAnimation();
     initSunAnimation();
 });
 
@@ -33,6 +37,7 @@ onMount(() => {
     _.ctx = elCanvas.getContext("2d")!;
     initSize();
     initStarsAnimation();
+    initMeteorAnimation();
     initSunAnimation().then(() => {
         window.addEventListener("resize", handleResize);
         _.play = true;
@@ -117,6 +122,25 @@ async function initSunAnimation() {
     return _.sunAnimation.init();
 }
 
+function initMeteorAnimation() {
+    const meteorFactory = (): Meteor => {
+        const radius = rand(1.5, 3.2);
+        return {
+            radius,
+            tail: {
+                radius: radius + rand(3.5, 5),
+                length: rand(10, 30),
+            },
+            degree: rand(230, 260),
+            ix: rand((_.width - _.contentWidth) * 0.5 * 0.4, _.width * 1.4),
+            d: rand(0.002, 0.01),
+            a: rand(0.002, 0.04),
+        }
+    }
+
+    _.meteorAnimation = new MeteorAnimation(meteorFactory, meteorsCount);
+}
+
 function clear() {
     _.ctx.clearRect(0, 0, _.width, _.height);
 }
@@ -125,8 +149,10 @@ function draw() {
     clear();
     if (!isNotAllowed()) {
         _.starsAnimation.draw(_.ctx);
+        _.meteorAnimation.draw(_.ctx);
         _.sunAnimation.draw(_.ctx);
         _.starsAnimation.next();
+        _.meteorAnimation.next();
         _.sunAnimation.next();
     }
     if (_.play) {

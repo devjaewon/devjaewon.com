@@ -65,6 +65,7 @@ export class SunAnimation {
         if (!this.arroundImage) {
             return;
         }
+        ctx.beginPath();
         ctx.arc(this.sun.x, this.sun.y, this.sun.radius, 0, SunAnimation.DOUBLE_RADIAN);
         ctx.fillStyle = "#FFBC05";
         ctx.fill();
