@@ -4,6 +4,7 @@
 import { browser } from "$app/environment";
 import { colorProperty, debounce, rand } from "@/utils";
 import { onMount, onDestroy } from "svelte";
+	import { StarsAnimation, type Star } from "./StarsAnimation";
 
 interface Snowflake {
     radius: number;
@@ -32,7 +33,7 @@ interface Sun {
     }
 }
 
-export let snowflakeCount = 100;
+export let starsCount = 100;
 
 let elCanvas: HTMLCanvasElement;
 
@@ -55,7 +56,7 @@ const _ = {
     contentWidth: 0,
     width: 0,
     height: 0,
-    snowflakes: [] as Array<Snowflake>,
+    starsAnimation: null as unknown as StarsAnimation,
     sun: null as unknown as Sun,
     play: false,
 };
@@ -63,7 +64,7 @@ const _ = {
 const handleResize = debounce(() => {
     clear();
     initSize();
-    initSnowflakes();
+    initStarsAnimation();
     initSun();
 });
 
@@ -71,7 +72,7 @@ onMount(() => {
     if (isNotSupport()) return;
     _.ctx = elCanvas.getContext("2d")!;
     initSize();
-    initSnowflakes();
+    initStarsAnimation();
     initSun().then(() => {
         window.addEventListener("resize", handleResize);
         _.play = true;
@@ -107,11 +108,16 @@ function initSize() {
     }
 }
 
-function initSnowflakes() {
-    _.snowflakes = [];
-    for (let i = 0; i < snowflakeCount; i++) {
-        _.snowflakes[i] = createSnowflake();
+function initStarsAnimation() {
+    const stars = [];
+    for (let i = 0; i < starsCount; i++) {
+        stars[i] = createStar();
     }
+
+    _.starsAnimation = new StarsAnimation(
+        stars,
+        _.height,
+    );
 }
 
 async function initSun() {
@@ -154,69 +160,17 @@ function getInitialX(): number {
     return ix;
 }
 
-function createSnowflake(): Snowflake {
+function createStar(): Star {
     const ix = getInitialX();
 
     return {
         radius: rand(1.5, 3.2),
-        x: ix,
         ix,
-        sx: 0,
         rx: rand(0.005, 0.02),
         wx: rand(0, 15),
-        y: rand(0, 1) * _.height,
+        iy: rand(0, 1) * _.height,
         dy: rand(0.3, 0.6),
         opacity: rand(0, 1),
-    }
-}
-
-function drawSnowflake(snowflake: Snowflake) {
-    const gradient = _.ctx.createRadialGradient(
-        snowflake.x,
-        snowflake.y,
-        0,
-        snowflake.x,
-        snowflake.y,
-        snowflake.radius,
-    );
-
-    gradient.addColorStop(0.0, colorProperty(255, 233, 32, snowflake.opacity));
-    gradient.addColorStop(0.8, colorProperty(242, 205, 92, snowflake.opacity));
-    gradient.addColorStop(1.0, colorProperty(242, 205, 92, snowflake.opacity));
-
-    _.ctx.beginPath();
-    _.ctx.arc(
-        snowflake.x,
-        snowflake.y,
-        snowflake.radius,
-        0,
-        Math.PI * 2,
-        false,
-    );
-    _.ctx.fillStyle = gradient;
-    _.ctx.fill();
-}
-
-function drawSnowflakes() {
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = _.snowflakes[i];
-        snowflake && drawSnowflake(snowflake);
-    }
-}
-
-function moveSnowflakes() {
-    for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = _.snowflakes[i];
-        if (!snowflake) break;
-
-        _.snowflakes[i].sx += snowflake.rx;
-        _.snowflakes[i].x = snowflake.ix + snowflake.wx * Math.sin(_.snowflakes[i].sx);
-        _.snowflakes[i].y += _.snowflakes[i].dy;
-
-        if (_.snowflakes[i].y > _.height) {
-            _.snowflakes[i].x = getInitialX();
-            _.snowflakes[i].y = -50;
-        }
     }
 }
 
@@ -257,9 +211,9 @@ function clear() {
 function draw() {
     clear();
     if (!isNotAllowed()) {
-        drawSnowflakes();
+        _.starsAnimation.draw(_.ctx);
         drawSun();
-        moveSnowflakes();
+        _.starsAnimation.next();
     }
     if (_.play) {
         requestAnimationFrame(draw);
