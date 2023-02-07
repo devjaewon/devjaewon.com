@@ -1,4 +1,4 @@
-<div class="work-experience">
+<div class="education">
     <div class="main">
         <div class="heading">
             <div class="logo-wrap">
@@ -15,9 +15,9 @@
             <div class="info">
                 <em class="period">{data.period}</em>
                 <strong class="title">
-                    <span class="corp txt">{data.corp}</span>
+                    <span class="organizer txt">{data.organizer}</span>
                     <span class="div"></span>
-                    <span class="position txt">{data.position}</span>
+                    <span class="course txt">{data.course}</span>
                 </strong>
             </div>
         </div>
@@ -25,41 +25,21 @@
             <Summary paragraphs={[data.summary]} />
         </div>
     </div>
-    <div class="sub-section">
-        <h3 class="sub-section-title">@역할</h3>
-        <div class="content">
-            <Summary small={true} paragraphs={[data.role]} />
-        </div>
-    </div>
-    <div class="sub-section">
-        <h3 class="sub-section-title">@프로젝트</h3>
-        {#each data.projects as project}
-        <div class="content">
-            <WorkProject
-                buttonText={project.title}
-                description={project.description}
-            />
-        </div>
-        {/each}
-    </div>
 </div>
 
 <script lang="ts">
 import Summary from "@/components/common/atomic/Summary.svelte";
-import WorkProject from "@/components/home/WorkProject.svelte";
-import type { WorkExperience } from "@/types/struct";
+import type { Education } from "@/types/struct";
 
-export let data: WorkExperience = {
+export let data: Education = {
     period: '',
     logo: {
         imageUrl: '',
         useBorder: false,
     },
-    corp: '',
-    position: '',
+    organizer: '',
+    course: '',
     summary: '',
-    role: '',
-    projects: [],
 }
 </script>
 
@@ -87,7 +67,7 @@ export let data: WorkExperience = {
             right: 0;
             bottom: 0;
             left: 0;
-            border: 1px solid rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 0, 0, 0.4);
             border-radius: 50%;
         }
     }
@@ -120,7 +100,7 @@ export let data: WorkExperience = {
         vertical-align: top;
         color: #000;
     }
-    .corp {
+    .organizer {
         font-size: 20px;
         line-height: 28px;
     }
@@ -133,32 +113,12 @@ export let data: WorkExperience = {
         background-color: #000;
         transform: rotate(20deg);
     }
-    .position {
+    .course {
         font-size: 16px;
         line-height: 31px;
     }
 }
 .summary {
     margin-top: 12px;
-}
-.sub-section {
-    position: relative;
-    margin-top: 28px;
-    padding: 18px 14px 14px;
-    border: 0.5px solid #cacaca;
-    border-radius: 2px;
-    .sub-section-title {
-        position: absolute;
-        top: -12px;
-        left: 8px;
-        padding: 0 8px;
-        background-color: #fdfeff;
-        font-weight: 300;
-        font-size: 16px;
-        color: #555;
-    }
-    .content + .content {
-        margin-top: 4px;
-    }
 }
 </style>

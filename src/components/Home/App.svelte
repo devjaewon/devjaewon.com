@@ -24,6 +24,9 @@
                 <div class="section">
                     <WorkExperiences />
                 </div>
+                <div class="section">
+                    <Educations />
+                </div>
             </div>
         </div>
     </div>
@@ -35,6 +38,7 @@ import AboutMe from "./AboutMe.svelte";
 import AppBackground from './AppBackground.svelte';
 import Profile from "./Profile.svelte";
 import WorkExperiences from "./WorkExperiences.svelte";
+import Educations from './Educations.svelte';
 
 let useBackgroundAnimation = true;
 
@@ -93,7 +97,7 @@ function onClickBtnAnimationToggle() {
     right: 12px;
     border-radius: 1px;
     padding: 0 14px;
-    background-color: #e3e3e3;
+    background-color: #ededed;
     font-family: 'Gowun Dodum', sans-serif;
     font-weight: 700;
     font-size: 15px;

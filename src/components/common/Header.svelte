@@ -18,10 +18,7 @@
     <div class="link-wrap">
         <ul class="link-list">
             <li class="link-item">
-                <a class="link" href="/notes">필기노트</a>
-            </li>
-            <li class="link-item">
-                <a class="link" href="/articles">기록</a>
+                <a class="link" href="/articles">노트</a>
             </li>
         </ul>
     </div>
@@ -69,9 +66,11 @@
     .link {
         display: block;
         padding: 0 14px;
-        border-radius: 2px;
-        background-color: #e3e3e3;
-        font-family: 'Gowun Dodum', sans-serif;
+        border-radius: 1px;
+        border: 1px solid #dedede;
+        box-shadow: 2px 2px 4px 1px #f3f3f3;
+        background-color: #fffefd;
+        font-family: 'Gowun Dodum';
         font-weight: 700;
         font-size: 15px;
         line-height: 32px;

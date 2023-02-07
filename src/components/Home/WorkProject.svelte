@@ -25,7 +25,7 @@
 import { cubicInOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/types/runtime/transition";
 
-const duration = 300;
+const duration = 200;
 const BIF_FIRST = 0.4;
 
 export let buttonText = '';

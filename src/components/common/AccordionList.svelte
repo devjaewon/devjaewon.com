@@ -38,7 +38,7 @@ const BIF_SECOND = 0.8;
 
 export let buttonText = '';
 export let items: Array<{text: string;}> = [];
-export let duration: number = 300;
+export let duration: number = 250;
 
 let elArrow: HTMLElement;
 let elBar: HTMLElement;

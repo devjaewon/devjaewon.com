@@ -10,7 +10,7 @@ export const workExperiences: Array<WorkExperience> = [
         corp: '펫비서',
         position: 'Co-founder',
         summary: '수의사, 엔지니어 지인 4명과 함께 고양이의 일상 데이터를 활용해 건강을 예측하는 펫테크 기업을 공동창업 했습니다.',
-        role: '소프트웨어를 전반적으로 책임지며 의견 조율, 기술스택 선정, 그리고 개발 모두 하고 있습니다.',
+        role: '소프트웨어를 전반적으로 책임지며 의견 조율, 기술스택 선정, 그리고 개발까지 모두 담당하고 있습니다.',
         projects: [
             {
                 title: '고양이 건강관리 IoT 시스템',

@@ -19,3 +19,14 @@ export interface WorkExperience {
     role: string;
     projects: Array<WorkProject>;
 }
+
+export interface Education {
+    period: string;
+    logo: {
+        imageUrl: string;
+        useBorder: boolean;
+    }
+    organizer: string;
+    course: string;
+    summary: string;
+};

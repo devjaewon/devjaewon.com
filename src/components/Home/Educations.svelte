@@ -1,15 +1,15 @@
-<section class="work-experiences">
-    <SectionTitle text="경력"></SectionTitle>
+<section class="educations">
+    <SectionTitle text="교육"></SectionTitle>
     <div class="list-box">
         <ul class="list">
-            {#each workExperiences as workExperience}
+            {#each educations as education}
             <li class="history-line">
                 <span class="circle"></span>
                 <span class="circle"></span>
                 <span class="circle"></span>
             </li>
             <li class="item">
-                <WorkExperience data={workExperience} />
+                <Education data={education} />
             </li>
             {/each}
         </ul>
@@ -18,12 +18,12 @@
 
 <script lang="ts">
 import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
-import WorkExperience from "./WorkExperience.svelte";
-import { workExperiences } from "@/static/workExperiences";
+import Education from "./Education.svelte";
+import { educations } from "@/static/educations";
 </script>
 
 <style lang="scss">
-.work-experiences {
+.educations {
     padding: 0 16px;
 }
 .list-box {
