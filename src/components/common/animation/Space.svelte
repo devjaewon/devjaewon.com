@@ -86,10 +86,10 @@ function initStarsAnimation() {
         return {
             radius: rand(1.5, 3.2),
             ix,
-            rx: rand(0.005, 0.02),
+            rx: rand(0.001, 0.003),
             wx: rand(0, 15),
             iy: rand(0, 1) * _.height,
-            dy: rand(0.3, 0.6),
+            dy: rand(0.03, 0.1),
             opacity: rand(0.1, 1),
         }
     }
@@ -110,7 +110,7 @@ async function initSunAnimation() {
             radius: 33,
             arround: {
                 radius: 63,
-                rotateVelocity: 0.2,
+                rotateVelocity: 0.05,
             },
         };
 
@@ -130,8 +130,8 @@ function initMeteorAnimation() {
             degree: rand(140, 165),
             ix: _.width,
             iy: i > 0 ? rand(_.height * -0.3, _.height * 0.5) : rand(0, _.height * 0.2),
-            d: rand(0.002, 0.01),
-            a: rand(0.002, 0.04),
+            d: rand(0.001, 0.006),
+            a: rand(0.001, 0.01),
             opacity: rand(0.3, 0.7),
         }
     }

@@ -91,9 +91,9 @@ export class SunAnimation {
             this.state.arroundScaleDirection = 1;
         }
         if (this.state.arroundScaleDirection === 0) {
-            this.state.arroundScale -= 0.0005;
+            this.state.arroundScale -= 0.0002;
         } else {
-            this.state.arroundScale += 0.0005;
+            this.state.arroundScale += 0.0002;
         }
     }
 }
