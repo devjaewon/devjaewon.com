@@ -15,7 +15,7 @@ export const workExperiences: Array<WorkExperience> = [
         projects: [
             {
                 title: '고양이 건강관리 IoT 시스템',
-                description: '고양이의 일상생활 속에서 수집할 수 있는 데이터를 이용해서, 증상이 잘 나타나지 않는 질환을 미리 판단하거나 체중을 관리하는 시스템을 구축했습니다. (수의사와 협업)',
+                description: '고양이의 일상생활 속에서 수집할 수 있는 데이터를 이용해서, 증상이 잘 나타나지 않는 질환을 미리 판단하거나 체중을 관리하는 시스템을 구축했습니다.',
                 skills: [SKILL.FLUTTER, SKILL.GOLANG, SKILL.MQTT, SKILL.MONGODB, SKILL.ECHO, SKILL.GOOGLE_CLOUD],
             },
             {
@@ -76,18 +76,18 @@ export const workExperiences: Array<WorkExperience> = [
         projects: [
             {
                 title: '네이버 쇼핑 서비스',
-                description: '신규 서비스 또는 프로모션 페이지의 HTML/CSS를 개발했습니다.',
-                skills: [],
+                description: '네이버 쇼핑 서비스의 다양한 웹페이지 마크업 영역을 개발했습니다. 스크린 리더 접근성을 향상시키거나(wai-aria 또는 html 구조를 활용) CSS 알고리즘과 다양한 응용 방식을 리서치 했습니다.',
+                skills: [SKILL.W3C, SKILL.SASS, SKILL.REACT, SKILL.HTML, SKILL.CSS],
             },
             {
                 title: 'HTML 기반 협업구조에서 React 기반으로 전환',
-                description: 'HTML/SCSS/Gulp 베이스로 빌드해 마크업 결과를 전달하며 협업하는 구조를 React/SCSS/Webpack 베이스로 협업하는 구조로 개선했습니다.',
-                skills: [],
+                description: 'HTML/SCSS/Gulp 베이스로 마크업을 빌드하는 구조에서 React/SCSS/Webpack 베이스로 빌드하는 구조로 개선했습니다.',
+                skills: [SKILL.GULP, SKILL.WEBPACK, SKILL.REACT],
             },
             {
                 title: 'Static Site Generator',
                 description: '네이버 협업 방식에 특화된 HTML <template> 을 기반으로 동작하는 Static Site Generator를 개발했습니다.',
-                skills: [],
+                skills: [SKILL.HTML, SKILL.CSS, SKILL.JAVASCRIPT, SKILL.JQUERY],
             }
         ],
     }

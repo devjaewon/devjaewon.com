@@ -21,6 +21,12 @@ export const RXJS = "rxjs";
 export const JAVASCRIPT = "javascript";
 export const CYPRESS = "cypress";
 export const GITHUB_ACTIONS = "github_actions";
+export const GULP = "gulp";
+export const WEBPACK = "webpack";
+export const SASS = "sass";
+export const W3C = "w3c";
+export const CSS = "css";
+export const HTML = "html";
 
 export const skillsMap: {
     [skillName: string]: {
@@ -192,4 +198,46 @@ export const skillsMap: {
         imageWidth: -1,
         imageHeight: 24,
     },
+    [GULP]: {
+        imageUrl: "/images/logo/gulp.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [WEBPACK]: {
+        imageUrl: "/images/logo/webpack.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [SASS]: {
+        imageUrl: "/images/logo/sass.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 20,
+    },
+    [W3C]: {
+        imageUrl: "/images/logo/w3c.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 18,
+    },
+    [CSS]: {
+        imageUrl: "/images/logo/css.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 20,
+    },
+    [HTML]: {
+        imageUrl: "/images/logo/html.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 20,
+    }
 }
