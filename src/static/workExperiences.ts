@@ -44,22 +44,22 @@ export const workExperiences: Array<WorkExperience> = [
             {
                 title: '이미지 검색 / 렌즈 검색 서비스',
                 description: '이미지와 이미지 상의 디텍팅 된 오브젝트 또는 텍스트(OCR) 정보를 검색하는 뷰어 모듈을 개발했습니다. 주로 고비용 DOM 렌더링 및 인터렉션 최적화에 대한 고민을 했고, k8s 기반 환경에서 Node 서버를 활용해 반복적인 작업을 개선하기도 했습니다.',
-                skills: [],
+                skills: [SKILL.TYPESCRIPT, SKILL.REACT, SKILL.CHROMIUM, SKILL.JAVASCRIPT, SKILL.RXJS, SKILL.NODE],
             },
             {
                 title: '서비스 프레임워크 전환 (jQuery to React)',
-                description: '기존에 jQuery 기반으로 구성된 검색 서비스의 여러 의존관계를 분석한 뒤 React 기반으로 전환하는 작업을 진행 했습니다. 100% React로 전환할 수 없는 상황이기에 일부 Native JS로 개발된 모듈, 라우팅 시스템과 호환 개발하는 고민을 주로 했습니다.',
-                skills: [],
+                description: '기존에 jQuery 기반으로 구성된 검색 서비스의 여러 의존관계를 분석한 뒤 React 기반으로 전환하는 작업을 진행 했습니다. 100% React로 전환할 수 없는 상황이었기에 일부 Native JS로 개발된 모듈, 라우팅 시스템과 호환하며 점진적 전환하는 고민을 주로 했습니다.',
+                skills: [SKILL.TYPESCRIPT, SKILL.REACT, SKILL.JQUERY, SKILL.JAVASCRIPT],
             },
             {
                 title: 'FE 에러 모니터링 시스템',
                 description: 'Sentry와 Puppeteer 오픈소스를 분석하여 브라우저 상 에러(네트워크, JS, 리소스)를 검색 서비스에 적합한 형태로 수집하고 시각화하는 모듈을 개발했습니다.',
-                skills: [],
+                skills: [SKILL.TYPESCRIPT, SKILL.SENTRY, SKILL.PUPPETEER, SKILL.GITHUB_ACTIONS],
             },
             {
                 title: '사내 E2E 테스트 강좌 개설',
                 description: '개인적인 E2E 테스트에 대한 고찰과 Cypress의 설계 철학, 응용법 등을 담은 초급 강좌를 개설했습니다. 다행히도 많은 분들이 좋아요를 눌러주었습니다.',
-                skills: [],
+                skills: [SKILL.CYPRESS],
             },
         ],
     },

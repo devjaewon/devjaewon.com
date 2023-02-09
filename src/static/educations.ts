@@ -9,7 +9,7 @@ export const educations: Array<Education> = [
         },
         organizer: 'CONNECT',
         course: '웹 풀스택 개발자 부트캠프',
-        summary: '개발 관련 지식을 배우고, 프로젝트를 진행하며 컴퓨터와 프로그래밍을 조금 더 이해할 수 있었던 시간이었습니다.',
+        summary: '알고리즘 및 컴퓨터 구조와 같은 기본 지식을 배우고, 프로젝트를 진행하며 컴퓨터와 프로그래밍을 조금 더 이해할 수 있었던 시간이었습니다.',
     },
     {
         period: '2010 - 2017',

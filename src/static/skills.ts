@@ -12,6 +12,15 @@ export const REACT = "react";
 export const GATSBY = "gatsby";
 export const GRPC = "grpc";
 export const PROTOBUF = "protobuf";
+export const NODE = "node";
+export const JQUERY = "jquery";
+export const CHROMIUM = "chromium";
+export const SENTRY = "sentry";
+export const PUPPETEER = "puppeteer";
+export const RXJS = "rxjs";
+export const JAVASCRIPT = "javascript";
+export const CYPRESS = "cypress";
+export const GITHUB_ACTIONS = "github_actions";
 
 export const skillsMap: {
     [skillName: string]: {
@@ -119,5 +128,68 @@ export const skillsMap: {
         height: 24,
         imageWidth: -1,
         imageHeight: 22,
-    }
+    },
+    [NODE]: {
+        imageUrl: "/images/logo/node.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 22,
+    },
+    [JQUERY]: {
+        imageUrl: "/images/logo/jquery.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 18,
+    },
+    [CHROMIUM]: {
+        imageUrl: "/images/logo/chromium.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [SENTRY]: {
+        imageUrl: "/images/logo/sentry.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 20,
+    },
+    [PUPPETEER]: {
+        imageUrl: "/images/logo/puppeteer.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [RXJS]: {
+        imageUrl: "/images/logo/rxjs.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [JAVASCRIPT]: {
+        imageUrl: "/images/logo/javascript.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [CYPRESS]: {
+        imageUrl: "/images/logo/cypress.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
+    [GITHUB_ACTIONS]: {
+        imageUrl: "/images/logo/github_actions.png",
+        width: -1,
+        height: 24,
+        imageWidth: -1,
+        imageHeight: 24,
+    },
 }
