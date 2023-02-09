@@ -1,6 +1,5 @@
-<section class="educations">
-    <SectionTitle text="교육"></SectionTitle>
-    <div class="list-box">
+<Section title="교육">
+    <div class="list-box" slot="content">
         <ul class="list">
             {#each educations as education}
             <li class="history-line">
@@ -14,18 +13,16 @@
             {/each}
         </ul>
     </div>
-</section>
+</Section>
 
 <script lang="ts">
+import Section from "@/components/common/atomic/Section.svelte";
 import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
 import Education from "./Education.svelte";
 import { educations } from "@/static/educations";
 </script>
 
 <style lang="scss">
-.educations {
-    padding: 0 16px;
-}
 .list-box {
     margin-top: 32px;
     .history-line {

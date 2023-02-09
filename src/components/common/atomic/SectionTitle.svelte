@@ -17,6 +17,12 @@ export let text = '';
 <style lang="scss">
 .section-title {
     margin: 0 -16px;
+    @media screen and (min-width: 375px) {
+        margin: 0 -20px;
+    }
+    @media screen and (min-width: 700px) {
+        margin: 0 -24px;
+    }
 }
 .title {
     display: flex;
@@ -40,6 +46,12 @@ export let text = '';
         padding: 0 16px;
         border-radius: 2px;
         vertical-align: middle;
+        @media screen and (min-width: 375px) {
+            padding: 0 20px;
+        }
+        @media screen and (min-width: 700px) {
+            padding: 0 24px;
+        }
     }
     .bar1 {
         width: 28px;

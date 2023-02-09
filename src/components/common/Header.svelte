@@ -27,6 +27,12 @@
 <style lang="scss">
 .header {
     padding: 10px;
+    @media screen and (min-width: 375px) {
+        padding: 10px 20px;
+    }
+    @media screen and (min-width: 700px) {
+        padding: 10px 24px;
+    }
     &::after {
         content: '';
         display: block;

@@ -90,7 +90,7 @@ function initStarsAnimation() {
             wx: rand(0, 15),
             iy: rand(0, 1) * _.height,
             dy: rand(0.3, 0.6),
-            opacity: rand(0.3, 1),
+            opacity: rand(0.1, 1),
         }
     }
 
