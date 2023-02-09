@@ -5,6 +5,7 @@ export interface AsEngineer {
 export interface WorkProject {
     title: string;
     description: string;
+    skills: Array<string>;
 }
 
 export interface WorkExperience {

@@ -4,7 +4,7 @@ export const educations: Array<Education> = [
     {
         period: '2019.07 - 2019.12',
         logo: {
-            imageUrl: '/images/logo_naver.png',
+            imageUrl: '/images/logo/naver.png',
             useBorder: false,
         },
         organizer: 'CONNECT',
@@ -14,7 +14,7 @@ export const educations: Array<Education> = [
     {
         period: '2010 - 2017',
         logo: {
-            imageUrl: '/images/logo_university.png',
+            imageUrl: '/images/logo/sungkyunkwan.png',
             useBorder: false,
         },
         organizer: '성균관대학교',

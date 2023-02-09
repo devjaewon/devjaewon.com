@@ -2,7 +2,7 @@
     <div class="logo">
         <img
             class="img"
-            src="/images/logo.svg"
+            src="/images/logo/devjaewon.svg"
             width=24
             height=24
             alt="로고"
@@ -28,10 +28,10 @@
 .header {
     padding: 10px;
     @media screen and (min-width: 375px) {
-        padding: 10px 20px;
+        padding: 10px 18px;
     }
     @media screen and (min-width: 700px) {
-        padding: 10px 24px;
+        padding: 10px 22px;
     }
     &::after {
         content: '';

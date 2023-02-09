@@ -36,8 +36,7 @@
         {#each data.projects as project}
         <div class="content">
             <WorkProject
-                buttonText={project.title}
-                description={project.description}
+                data={project}
             />
         </div>
         {/each}
