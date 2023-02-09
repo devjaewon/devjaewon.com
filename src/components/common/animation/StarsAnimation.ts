@@ -25,7 +25,7 @@ export class StarsAnimation {
     constructor(
         private starFactory: () => Star,
         private count: number,
-        private end: number,
+        private endChecker: (x: number, y: number) => boolean,
     ) {
         this.stars = [];
         for (let i = 0; i < count; i++) {
@@ -76,7 +76,7 @@ export class StarsAnimation {
 
             this.states[i].x = this.stars[i].ix + (this.stars[i].wx * Math.sin(this.states[i].sx));
             this.states[i].y += this.stars[i].dy;
-            if (this.states[i].y > this.end) {
+            if (this.endChecker(this.states[i].x, this.states[i].y)) {
                 this.stars[i] = this.starFactory();
                 this.states[i].x = this.stars[i].ix;
                 this.states[i].y = -50;

@@ -8,12 +8,13 @@ import { MeteorAnimation, type Meteor } from "./MeteorAnimation";
 import { StarsAnimation, type Star } from "./StarsAnimation";
 import { SunAnimation, type Sun } from "./SunAnimation";
 
-export let starsCount = 150;
+export let starsCount = 250;
 export let meteorsCount = 2;
 
 let elCanvas: HTMLCanvasElement;
-
 const _ = {
+    elWrap: null as unknown as HTMLElement,
+    wrapResizeObserver: null as unknown as ResizeObserver,
     ctx: null as unknown as CanvasRenderingContext2D,
     contentWidth: 0,
     width: 0,
@@ -25,21 +26,21 @@ const _ = {
 };
 
 const handleResize = debounce(() => {
-    clear();
     initSize();
-    initStarsAnimation();
-    initMeteorAnimation();
-    initSunAnimation();
 });
 
 onMount(() => {
     if (isNotSupport()) return;
     _.ctx = elCanvas.getContext("2d")!;
+    _.elWrap = elCanvas.parentElement as HTMLElement;
+    if (ResizeObserver) {
+        _.wrapResizeObserver = new ResizeObserver(handleResize);
+    }
     initSize();
     initStarsAnimation();
     initMeteorAnimation();
     initSunAnimation().then(() => {
-        window.addEventListener("resize", handleResize);
+        _.wrapResizeObserver.observe(_.elWrap);
         _.play = true;
         requestAnimationFrame(draw)
     });
@@ -47,7 +48,7 @@ onMount(() => {
 
 onDestroy(() => {
     if (isNotSupport()) return;
-    window.removeEventListener("resize", handleResize);
+    _.wrapResizeObserver.disconnect();
     _.play = false;
 });
 
@@ -75,17 +76,9 @@ function initSize() {
 
 function initStarsAnimation() {
     const starFactory = (): Star => {
-        const side = Math.round(rand(0, 1));
-        const isLeftSide = side === 0;
-
-        const mid = _.width / 2;
-        const chalf = _.contentWidth / 2;
-        const padding = 30;
-        const ix = isLeftSide ? rand(0, mid - chalf - padding) : rand(mid + chalf + padding, _.width);
-
         return {
             radius: rand(1.5, 3.2),
-            ix,
+            ix: rand(0, _.width),
             rx: rand(0.001, 0.003),
             wx: rand(0, 15),
             iy: rand(0, 1) * _.height,
@@ -97,7 +90,7 @@ function initStarsAnimation() {
     _.starsAnimation = new StarsAnimation(
         starFactory,
         starsCount,
-        _.height,
+        (x: number, y: number) => y > _.height,
     );
 }
 
