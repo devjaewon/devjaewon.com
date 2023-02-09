@@ -9,7 +9,7 @@ import { StarsAnimation, type Star } from "./StarsAnimation";
 import { SunAnimation, type Sun } from "./SunAnimation";
 
 export let starsCount = 150;
-export let meteorsCount = 3;
+export let meteorsCount = 2;
 
 let elCanvas: HTMLCanvasElement;
 
@@ -90,7 +90,7 @@ function initStarsAnimation() {
             wx: rand(0, 15),
             iy: rand(0, 1) * _.height,
             dy: rand(0.3, 0.6),
-            opacity: rand(0, 1),
+            opacity: rand(0.3, 1),
         }
     }
 
@@ -123,22 +123,25 @@ async function initSunAnimation() {
 }
 
 function initMeteorAnimation() {
-    const meteorFactory = (): Meteor => {
+    const meteorFactory = (i: number): Meteor => {
         const radius = rand(1.5, 3.2);
         return {
             radius,
-            tail: {
-                radius: radius + rand(3.5, 5),
-                length: rand(10, 30),
-            },
-            degree: rand(230, 260),
-            ix: rand((_.width - _.contentWidth) * 0.5 * 0.4, _.width * 1.4),
+            degree: rand(140, 165),
+            ix: _.width,
+            iy: i > 0 ? rand(_.height * -0.3, _.height * 0.5) : rand(0, _.height * 0.2),
             d: rand(0.002, 0.01),
             a: rand(0.002, 0.04),
+            opacity: rand(0.3, 0.7),
         }
     }
+    const delay = () => Math.floor(rand(400, 1000));
 
-    _.meteorAnimation = new MeteorAnimation(meteorFactory, meteorsCount);
+    _.meteorAnimation = new MeteorAnimation(
+        meteorFactory,
+        meteorsCount,
+        delay,
+    );
 }
 
 function clear() {
