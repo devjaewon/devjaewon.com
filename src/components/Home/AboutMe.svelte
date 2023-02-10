@@ -21,7 +21,6 @@
 
 <script lang="ts">
 import Section from "@/components/common/atomic/Section.svelte";
-import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
 import Summary from "@/components/common/atomic/Summary.svelte";
 import AccordionList from "@/components/common/AccordionList.svelte";
 import { asEngineer } from "@/static/asEnginner";

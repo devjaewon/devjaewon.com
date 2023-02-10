@@ -35,7 +35,7 @@
         <h3 class="sub-section-title">@프로젝트</h3>
         {#each data.projects as project}
         <div class="content">
-            <WorkProject
+            <WorkProjectSummary
                 data={project}
             />
         </div>
@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import Summary from "@/components/common/atomic/Summary.svelte";
-import WorkProject from "@/components/home/WorkProject.svelte";
+import WorkProjectSummary from "@/components/home/WorkProjectSummary.svelte";
 import type { WorkExperience } from "@/types/struct";
 
 export let data: WorkExperience = {
@@ -151,7 +151,7 @@ export let data: WorkExperience = {
         top: -12px;
         left: 8px;
         padding: 0 8px;
-        background-color: #fdfeff;
+        background-color: #fffefd;
         font-weight: 300;
         font-size: 16px;
         color: #555;

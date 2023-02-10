@@ -14,7 +14,7 @@
         </div>
         {/if}
         <div id="content" class="main">
-            <div class="sections">
+            <div class="sections _content">
                 <div class="section">
                     <AboutMe />
                 </div>
@@ -27,17 +27,27 @@
             </div>
         </div>
     </div>
+    {#if layerState !== null}
+    <DetailLayer state={layerState} />
+    {/if}
 </div>
+<div id="_stanbies"></div>
 
 <script lang="ts">
 import Header from '@/components/common/Header.svelte';
 import AboutMe from "./AboutMe.svelte";
 import AppBackground from './AppBackground.svelte';
-import Profile from "./Profile.svelte";
 import WorkExperiences from "./WorkExperiences.svelte";
 import Educations from './Educations.svelte';
+import DetailLayer from './DetailLayer.svelte';
+import { layer, LayerState } from '@/store';
 
 let useBackgroundAnimation = true;
+let layerState: LayerState | null;
+
+layer.subscribe((state) => {
+    layerState = state;
+});
 
 function onClickBtnAnimationToggle() {
     useBackgroundAnimation = !useBackgroundAnimation;

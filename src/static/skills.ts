@@ -42,7 +42,7 @@ export const skillsMap: {
         width: -1,
         height: 24,
         imageWidth: -1,
-        imageHeight: 24,
+        imageHeight: 20,
     },
     [CSS]: {
         imageUrl: "/images/logo/css.png",
