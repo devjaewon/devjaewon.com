@@ -14,45 +14,46 @@
     </span>
     {#if isOpened}
     <div
-        class="detail"
         in:transitionDetail
         out:transitionDetail
     >
-        <div class="area-desc" data-target="desc">
-            <p class="desc">{data.description}</p>
-        </div>
-        {#if skills.length > 0}
-        <div class="area-skills">
-            <div class="skills">
-                <ul class="skill-list" data-target="skills">
-                    {#each skills as skill}
-                    {@const skillUI = skillsMap[skill]}
-                    {@const width = skillUI.width < 0 ? 'auto' : `${skillUI.width}px`}
-                    {@const height = skillUI.height < 0 ? 'auto' : `${skillUI.height}px`}
-                    {@const imageWidth = skillUI.imageWidth < 0 ? null : skillUI.imageWidth}
-                    {@const imageHeight = skillUI.imageHeight < 0 ? null : skillUI.imageHeight}
-                    <li class="skill">
-                        <div class="figure" style={`width:${width};height:${height}`}>
-                            <img
-                                class="img"
-                                src={skillUI.imageUrl}
-                                width={imageWidth}
-                                height={imageHeight}
-                                alt={skill}
-                            >
-                        </div>
-                    </li>
-                    {/each}
-                </ul>
+        <div class="detail">
+            <div class="area-desc" data-target="desc">
+                <p class="desc">{data.description}</p>
             </div>
+            {#if skills.length > 0}
+            <div class="area-skills">
+                <div class="skills">
+                    <ul class="skill-list" data-target="skills">
+                        {#each skills as skill}
+                        {@const skillUI = skillsMap[skill]}
+                        {@const width = skillUI.width < 0 ? 'auto' : `${skillUI.width}px`}
+                        {@const height = skillUI.height < 0 ? 'auto' : `${skillUI.height}px`}
+                        {@const imageWidth = skillUI.imageWidth < 0 ? null : skillUI.imageWidth}
+                        {@const imageHeight = skillUI.imageHeight < 0 ? null : skillUI.imageHeight}
+                        <li class="skill">
+                            <div class="figure" style={`width:${width};height:${height}`}>
+                                <img
+                                    class="img"
+                                    src={skillUI.imageUrl}
+                                    width={imageWidth}
+                                    height={imageHeight}
+                                    alt={skill}
+                                >
+                            </div>
+                        </li>
+                        {/each}
+                    </ul>
+                </div>
+            </div>
+            {/if}
         </div>
-        {/if}
-    </div>
-    <div class="area-buttons">
-        <button class="btn-detail" type="button" on:click={handleClickDetailButton}>
-            <span class="text">자세히 보기</span>
-            <img class="icon" src="/images/icon/arrow_right.svg" width="14" height="14" alt="">
-        </button>
+        <div class="area-buttons">
+            <button class="btn-detail" type="button" on:click={handleClickDetailButton}>
+                <span class="text">자세히 보기</span>
+                <img class="icon" src="/images/icon/arrow_right.svg" width="14" height="14" alt="">
+            </button>
+        </div>
     </div>
     {/if}
 </div>
