@@ -65,7 +65,7 @@ export class LayerTransition {
 
     // prev 는 opacity: 1 && visible
     // next 는 opacity: 0 && visible 상태 권장
-    async start() {
+    async forward() {
         if (!requestAnimationFrame) return;
 
         this.copyStanbyForMoving();
@@ -74,6 +74,13 @@ export class LayerTransition {
         await this.moveStanbies();
         await this.fadeInLayer();
         this.hideStanbies();
+    }
+
+    async backward() {
+        if (!requestAnimationFrame) return;
+
+        this.showStanbies();
+        await this.fadeOutLayer();
     }
 
     private copyStanbyForMoving() {
@@ -252,8 +259,51 @@ export class LayerTransition {
         });
     }
 
+    private async fadeOutLayer() {
+        const layer = this.layer;
+
+        if (!layer) return;
+
+
+        let isEnd = false;
+        let timer: NodeJS.Timeout;
+        const end = () => {
+            if (isEnd) return false;
+            isEnd = true;
+            clearTimeout(timer);
+            return true;
+        } 
+
+        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
+        const timingFunction = this.option.fadeTimingFunction ?? "ease";
+
+        layer.style.transition = `opacity ${duration} ${timingFunction} 0s`;
+        return new Promise<void>(resolve => {
+            timer = setTimeout(() => {
+                if (end()) {
+                    resolve();
+                }
+            }, this.option.moveDuration + 30);
+            layer.ontransitionend = () => {
+                layer.ontransitionend = null;
+                if (end()) {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(() => {
+                layer.style.opacity = "0";
+            })
+        });
+    }
+
     private hideStanbies() {
         if (!this.stanbyContainer) return;
         this.stanbyContainer.style.display = "none";
+    }
+
+    private showStanbies() {
+        if (!this.stanbyContainer) return;
+        this.stanbyContainer.style.removeProperty("display");
     }
 }

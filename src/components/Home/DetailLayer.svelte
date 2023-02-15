@@ -3,7 +3,11 @@
         <h3 class="title" data-target="title">
             <span class="text">{data.title}</span>
         </h3>
-        <button class="btn-close" type="button">
+        <button
+            class="btn-close"
+            type="button"
+            on:click={onClickCloseButton}
+        >
             <img
                 class="img"
                 src="/images/icon/x.svg"
@@ -63,6 +67,10 @@ let elRoot: HTMLElement;
 
 $ : data = state.data as WorkProject;
 
+function onClickCloseButton() {
+    state.transition.backward();
+}
+
 onMount(() => {
     const nexts = Array.prototype.slice.call(elRoot.querySelectorAll("[data-target]")).reduce((map: {[id: string]: HTMLElement}, el: HTMLElement) => {
         map[el.getAttribute("data-target")!] = el;
@@ -71,7 +79,7 @@ onMount(() => {
 
     state.transition.setLayer(elRoot);
     state.transition.setNexts(nexts);
-    state.transition.start();
+    state.transition.forward();
 });
 </script>
 
@@ -128,9 +136,9 @@ onMount(() => {
     padding: 0 6px 14px;
     .desc {
         border-radius: 2px;
+        word-break: keep-all;
         font-size: 14px;
         line-height: 1.55;
-        white-space: pre-wrap;
         color: #555;
     }
 }

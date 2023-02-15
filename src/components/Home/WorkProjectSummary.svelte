@@ -173,10 +173,10 @@ function _computeDescOpacity(x: number) {
 .area-desc {
     padding: 0 6px 14px;
     .desc {
+        word-break: keep-all;
         border-radius: 2px;
         font-size: 14px;
         line-height: 1.55;
-        white-space: pre-wrap;
         color: #555;
     }
 }
