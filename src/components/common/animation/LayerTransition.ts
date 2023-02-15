@@ -71,7 +71,7 @@ export class LayerTransition {
         this.copyStanbyForMoving();
         this.fixScreen();
         await this.fadeOutContent();
-        await this.moveStanbies();
+        await this.moveStanbiesForward();
         await this.fadeInLayer();
         this.hideStanbies();
     }
@@ -81,6 +81,14 @@ export class LayerTransition {
 
         this.showStanbies();
         await this.fadeOutLayer();
+        await this.moveStanbiesBackward();
+        await this.fadeInContent();
+        this.unfixScreen();
+        this.clear();
+
+        return new Promise<void>(resolve => {
+            requestAnimationFrame(() => resolve());
+        })
     }
 
     private copyStanbyForMoving() {
@@ -154,7 +162,44 @@ export class LayerTransition {
         });
     }
 
-    private async moveStanbies() {
+    private fadeInContent() {
+        const content = this.content;
+
+        if (!content) return;
+        let isEnd = false; // TODO: 추후 race condition util 필요
+        let timer: NodeJS.Timeout;
+        const end = () => {
+            if (isEnd) return false;
+            isEnd = true;
+            clearTimeout(timer);
+            return true;
+        } 
+
+        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
+        const timingFunction = this.option.fadeTimingFunction ?? "ease";
+
+        content.style.opacity = "0";
+        content.style.transition = `opacity ${duration} ${timingFunction} 0s`;
+        return new Promise<void>(resolve => {
+            timer = setTimeout(() => {
+                if (end()) {
+                    resolve();
+                }
+            }, this.option.fadeDuration + 30);
+            content.ontransitionend = () => {
+                content.ontransitionend = null;
+                if (end()) {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(() => {
+                content.style.opacity = "1";
+            });
+        });
+    }
+ 
+    private async moveStanbiesForward() {
         let isEnd = false;
         let timer: NodeJS.Timeout;
         const end = () => {
@@ -185,7 +230,6 @@ export class LayerTransition {
             next.y = rect.top ?? rect.y;
             d[i] = [next.x - target.x, next.y - target.y];
 
-            console.log(target, next);
             if (elementID === "title") {
                 const elText = (stanby.firstElementChild as HTMLElement);
                 elText.style.transformOrigin = "left";
@@ -216,6 +260,69 @@ export class LayerTransition {
                     if (elementID === "title") {
                         const elText = (stanby.firstElementChild as HTMLElement);
                         elText.style.transform = 'scale(1.1)';
+                    }
+                });
+            });
+        })
+    }
+
+    private async moveStanbiesBackward() {
+        let isEnd = false;
+        let timer: NodeJS.Timeout;
+        const end = () => {
+            if (isEnd) return false;
+            isEnd = true;
+            clearTimeout(timer);
+            return true;
+        } 
+
+        const elementIDs = Object.keys(this.stanbies);
+        let elLastStanby: HTMLElement;
+        
+        elementIDs.forEach((elementID, i) => {
+            const next = this.nexts[elementID];
+            const stanby = this.stanbies[elementID];
+
+            if (i === elementIDs.length - 1) {
+                elLastStanby = stanby;
+            }
+            
+            const rect = next.el.getBoundingClientRect();
+            const duration = `${(this.option.moveDuration / 1000).toFixed(1)}s`;
+            const timingFunction = this.option.moveTimingFunction ?? "ease";
+
+            next.x = rect.left ?? rect.x;
+            next.y = rect.top ?? rect.y;
+
+            if (elementID === "title") {
+                const elText = (stanby.firstElementChild as HTMLElement);
+                elText.style.transformOrigin = "left";
+                elText.style.transition = `transform ${duration} ${timingFunction} 0s`;
+            }
+            stanby.style.transition = `transform ${duration} ${timingFunction} 0s`;
+        });
+
+        return new Promise<void>(resolve => {
+            timer = setTimeout(() => {
+                if (end()) {
+                    resolve();
+                }
+            }, this.option.moveDuration + 30);
+            elLastStanby.ontransitionend = () => {
+                elLastStanby.ontransitionend = null;
+                if (end()) {
+                    resolve();
+                }
+            }
+
+            requestAnimationFrame(() => {
+                elementIDs.forEach((elementID, i) => {
+                    const stanby = this.stanbies[elementID];
+
+                    stanby.style.transform = `translate(0, 0)`;
+                    if (elementID === "title") {
+                        const elText = (stanby.firstElementChild as HTMLElement);
+                        elText.style.transform = 'scale(1)';
                     }
                 });
             });
@@ -305,5 +412,21 @@ export class LayerTransition {
     private showStanbies() {
         if (!this.stanbyContainer) return;
         this.stanbyContainer.style.removeProperty("display");
+    }
+
+    private clear() {
+        this.clearStanbies();
+    }
+
+    private clearStanbies() {
+        if (!this.stanbyContainer) return;
+        Array.prototype.slice.call(this.stanbyContainer.children).forEach(child => {
+            this.stanbyContainer!.removeChild(child);
+        });
+        this.stanbyContainer.style.removeProperty("display");
+        Object.keys(this.targets).forEach(elementID => {
+            const target = this.targets[elementID];
+            target.el.style.removeProperty("opacity");
+        })
     }
 }

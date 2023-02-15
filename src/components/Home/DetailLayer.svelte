@@ -57,7 +57,7 @@
 
 <script lang="ts">
 import { skillsMap } from "@/static/skills";
-import type { LayerState } from "@/store";
+import { layer, type LayerState } from "@/store";
 import type { WorkProject } from "@/types";
 import { onMount } from "svelte";
 
@@ -68,7 +68,9 @@ let elRoot: HTMLElement;
 $ : data = state.data as WorkProject;
 
 function onClickCloseButton() {
-    state.transition.backward();
+    state.transition.backward().then(() => {
+        layer.close();
+    });
 }
 
 onMount(() => {

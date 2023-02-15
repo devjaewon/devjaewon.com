@@ -52,7 +52,6 @@ layer.subscribe((state) => {
 function onClickBtnAnimationToggle() {
     useBackgroundAnimation = !useBackgroundAnimation;
 }
-
 </script>
 
 <style lang="scss">
