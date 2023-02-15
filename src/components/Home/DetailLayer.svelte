@@ -3,6 +3,15 @@
         <h3 class="title" data-target="title">
             <span class="text">{data.title}</span>
         </h3>
+        <button class="btn-close" type="button">
+            <img
+                class="img"
+                src="/images/icon/x.svg"
+                width={32}
+                height={32}
+                alt="닫기"
+            />
+        </button>
         <div class="area-video">
             <div class="video"></div>
         </div>
@@ -151,6 +160,24 @@ onMount(() => {
     .img {
         display: inline-block;
         vertical-align: middle;
+    }
+}
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+    .img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 32px;
+        height: 32px;
+        margin: auto;
     }
 }
 </style>
