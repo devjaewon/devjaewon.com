@@ -15,12 +15,12 @@ export const workExperiences: Array<WorkExperience> = [
         projects: [
             {
                 title: '고양이 건강관리 IoT 시스템',
-                description: '고양이의 일상생활 속에서 수집할 수 있는 데이터를 이용해서, 증상이 잘 나타나지 않는 질환을 미리 판단하거나 체중을 관리하는 시스템을 구축했습니다.',
+                description: '고양이의 일상생활 속에서 수집할 수 있는 데이터를 이용해서, 증상이 잘 나타나지 않는 만성질환을 미리 판단하고 관리하는 시스템을 구축했습니다.',
                 skills: [SKILL.FLUTTER, SKILL.GOLANG, SKILL.MQTT, SKILL.MONGODB, SKILL.ECHO, SKILL.GOOGLE_CLOUD],
             },
             {
                 title: '중앙 로그 시스템',
-                description: '서비스 운영에 필요한 지표, 서버 메트릭 또는 로그 등을 중앙 집중형으로 관리하는 시스템을 ELK 스택으로 구축했습니다.',
+                description: '서비스 운영에 필요한 지표, 서버 메트릭 또는 로그 등을 중앙 집중형으로 관리하는 시스템을 구축했습니다.',
                 skills: [SKILL.ELASTIC, SKILL.LOGSTASH, SKILL.KIBANA, SKILL.GRPC, SKILL.PROTOBUF, SKILL.GOOGLE_CLOUD],
             },
             {
