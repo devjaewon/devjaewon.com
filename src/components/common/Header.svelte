@@ -18,7 +18,7 @@
     <div class="link-wrap">
         <ul class="link-list">
             <li class="link-item">
-                <a class="link" href="/articles">노트</a>
+                <a class="link" href={"javascript:void(0)"}>노트</a>
             </li>
         </ul>
     </div>

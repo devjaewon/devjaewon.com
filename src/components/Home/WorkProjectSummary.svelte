@@ -1,5 +1,5 @@
 <div class="work-project-summary" bind:this={elRoot}>
-    <a href="@" class="button" on:click={handleClickButton}>
+    <a href={"javascript:void(0)"} class="button" on:click={handleClickButton}>
         <span class="button-text-wrap" data-target="title">
             <span class="button-text">{data.title}</span>
         </span>
