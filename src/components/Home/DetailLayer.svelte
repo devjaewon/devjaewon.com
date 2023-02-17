@@ -56,9 +56,9 @@
 </div>
 
 <script lang="ts">
-import { skillsMap } from "@/static/skills";
-import { layer, type LayerState } from "@/store";
-import type { WorkProject } from "@/types";
+import { skillsMap } from "../../static/skills";
+import { layer, type LayerState } from "../../store";
+import type { WorkProject } from "../../types";
 import { onMount } from "svelte";
 
 export let state: LayerState;

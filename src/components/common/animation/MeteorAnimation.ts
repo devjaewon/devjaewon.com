@@ -1,4 +1,4 @@
-import { colorProperty } from "@/utils";
+import { colorProperty } from "../../../utils";
 
 export interface Meteor {
     radius: number;

@@ -16,10 +16,9 @@
 </Section>
 
 <script lang="ts">
-import Section from "@/components/common/atomic/Section.svelte";
-import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
+import Section from "../common/atomic/Section.svelte";
 import WorkExperience from "./WorkExperience.svelte";
-import { workExperiences } from "@/static/workExperiences";
+import { workExperiences } from "../../static/workExperiences";
 </script>
 
 <style lang="scss">

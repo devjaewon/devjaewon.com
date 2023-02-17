@@ -1,5 +1,5 @@
 <Space />
 
 <script lang="ts">
-import Space from "@/components/common/animation/Space.svelte";
+import Space from "../common/animation/Space.svelte";
 </script>

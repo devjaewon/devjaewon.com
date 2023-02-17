@@ -16,10 +16,9 @@
 </Section>
 
 <script lang="ts">
-import Section from "@/components/common/atomic/Section.svelte";
-import SectionTitle from "@/components/common/atomic/SectionTitle.svelte";
+import Section from "../common/atomic/Section.svelte";
 import Education from "./Education.svelte";
-import { educations } from "@/static/educations";
+import { educations } from "../../static/educations";
 </script>
 
 <style lang="scss">

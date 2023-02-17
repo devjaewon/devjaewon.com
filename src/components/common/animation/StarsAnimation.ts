@@ -1,4 +1,4 @@
-import { colorProperty, rand } from "@/utils";
+import { colorProperty, rand } from "../../../utils";
 
 export interface Star {
     radius: number;

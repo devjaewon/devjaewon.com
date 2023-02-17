@@ -2,7 +2,7 @@
 
 <script lang="ts">
 import { browser } from "$app/environment";
-import { debounce, rand } from "@/utils";
+import { debounce, rand } from "../../../utils";
 import { onMount, onDestroy } from "svelte";
 import { MeteorAnimation, type Meteor } from "./MeteorAnimation";
 import { StarsAnimation, type Star } from "./StarsAnimation";

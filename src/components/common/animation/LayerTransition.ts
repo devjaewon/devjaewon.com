@@ -4,7 +4,7 @@ import {
     setElementStyles,
     transitionElement,
     transitionElements, type TransitionSpec,
-} from "@/utils";
+} from "../../../utils";
 
 interface ElementMap {
     [elementID: string]: HTMLElement;

@@ -1,5 +1,5 @@
-import type { LayerTransition } from "@/components/common/animation/LayerTransition";
-import { LayerType, type WorkProject } from "@/types";
+import type { LayerTransition } from "../components/common/animation/LayerTransition";
+import { LayerType, type WorkProject } from "../types";
 import { writable } from "svelte/store";
 
 export class LayerState {

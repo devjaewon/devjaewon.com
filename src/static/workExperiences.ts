@@ -1,4 +1,4 @@
-import type { WorkExperience } from "@/types/struct";
+import type { WorkExperience } from "../types/struct";
 import * as SKILL from "./skills";
 
 export const workExperiences: Array<WorkExperience> = [

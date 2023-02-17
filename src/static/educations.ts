@@ -1,4 +1,4 @@
-import type { Education } from "@/types/struct";
+import type { Education } from "../types/struct";
 
 export const educations: Array<Education> = [
     {

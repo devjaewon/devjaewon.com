@@ -29,8 +29,8 @@
 </div>
 
 <script lang="ts">
-import Summary from "@/components/common/atomic/Summary.svelte";
-import type { Education } from "@/types/struct";
+import Summary from "../common/atomic/Summary.svelte";
+import type { Education } from "../../types/struct";
 
 export let data: Education = {
     period: '',
