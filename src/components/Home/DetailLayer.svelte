@@ -89,7 +89,7 @@ onMount(() => {
 .detail-layer {
     position: fixed;
     z-index: 9000;
-    max-width: 500px;
+    max-width: 620px;
     top: 0;
     left: 50%;
     width: 100%;
@@ -102,9 +102,6 @@ onMount(() => {
     }
     .box {
         position: relative;
-        padding: 18px 14px 14px;
-        border: 0.5px solid #cacaca;
-        border-radius: 2px;
     }
 }
 .title {
@@ -137,10 +134,10 @@ onMount(() => {
 .area-desc {
     padding: 0 6px 14px;
     .desc {
-        border-radius: 2px;
         word-break: keep-all;
+        font-weight: 400;
         font-size: 14px;
-        line-height: 1.55;
+        line-height: 22px;
         color: #555;
     }
 }

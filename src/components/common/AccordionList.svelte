@@ -54,6 +54,8 @@ function transitionList(node: HTMLElement): TransitionConfig {
     const elDescriptions = Array.prototype.slice.call(elList.querySelectorAll(".desc"));
     const barH = node.offsetHeight - 12;
 
+    console.log(barH);
+
     return {
         delay: 0,
         duration,
@@ -68,10 +70,10 @@ function transitionList(node: HTMLElement): TransitionConfig {
             elBar.style.setProperty("height", `${barHeight}px`);
             elItemBars.forEach(el => {
                 (el as HTMLElement).style.setProperty("width", `${itemBarWidth}px`);
-            })
+            });
             elDescriptions.forEach(el => {
                 (el as HTMLElement).style.setProperty("opacity", `${descOpacity}`);
-            })
+            });
         }
     }
 }

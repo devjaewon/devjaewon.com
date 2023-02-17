@@ -26,20 +26,24 @@
         </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title">@역할</h3>
-        <div class="content">
-            <Summary small={true} paragraphs={[data.role]} />
+        <h3 class="sub-section-title"><span class="txt">역할</span></h3>
+        <div class="contents">
+            <div class="content">
+                <Summary small={true} paragraphs={[data.role]} />
+            </div>
         </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title">@프로젝트</h3>
-        {#each data.projects as project}
-        <div class="content">
-            <WorkProjectSummary
-                data={project}
-            />
+        <h3 class="sub-section-title"><span class="txt">프로젝트</span></h3>
+        <div class="contents">
+            {#each data.projects as project}
+            <div class="content">
+                <WorkProjectSummary
+                    data={project}
+                />
+            </div>
+            {/each}
         </div>
-        {/each}
     </div>
 </div>
 
@@ -143,18 +147,23 @@ export let data: WorkExperience = {
 .sub-section {
     position: relative;
     margin-top: 28px;
-    padding: 18px 14px 14px;
-    border: 0.5px solid #cacaca;
     border-radius: 2px;
     .sub-section-title {
-        position: absolute;
-        top: -12px;
-        left: 8px;
-        padding: 0 8px;
-        background-color: #fffefd;
-        font-weight: 300;
-        font-size: 16px;
-        color: #555;
+        .txt {
+            display: inline-block;
+            height: 26px;
+            padding: 4px 8px;
+            border-radius: 2px;
+            background-color: #343434;
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 14px;
+            line-height: 18px;
+            vertical-align: top;
+            color: #fffefd;
+        }
+    }
+    .content:first-child {
+        margin-top: 12px;
     }
     .content + .content {
         margin-top: 4px;

@@ -175,9 +175,9 @@ function _computeDescOpacity(x: number) {
     padding: 0 6px 14px;
     .desc {
         word-break: keep-all;
-        border-radius: 2px;
+        font-weight: 400;
         font-size: 14px;
-        line-height: 1.55;
+        line-height: 22px;
         color: #555;
     }
 }

@@ -68,7 +68,7 @@ function onClickBtnAnimationToggle() {
     top: 0;
     left: 50%;
     width: 100%;
-    max-width: 500px;
+    max-width: 620px;
     background-color: #fffefd;
     transform: translate(-50%, 0);
 }
@@ -84,7 +84,7 @@ function onClickBtnAnimationToggle() {
     .main {
         position: relative;
         z-index: 1;
-        max-width: 500px;
+        max-width: 620px;
         margin: 0 auto;
         padding: 52px 0 60px 0;
         background-color: #fffefd;
