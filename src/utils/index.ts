@@ -1,3 +1,5 @@
+export * from "./dom";
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function debounce(func: (...args: any[]) => any, timeout = 300) {
     let timer: NodeJS.Timeout;

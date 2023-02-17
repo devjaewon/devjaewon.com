@@ -1,3 +1,11 @@
+import {
+    removeElementChildren,
+    removeElementStyles,
+    setElementStyles,
+    transitionElement,
+    transitionElements, type TransitionSpec,
+} from "@/utils";
+
 interface ElementMap {
     [elementID: string]: HTMLElement;
 }
@@ -102,63 +110,54 @@ export class LayerTransition {
             target.x = rect.left ?? rect.x;
 
             this.stanbies[elementID] = target.el.cloneNode(true) as HTMLElement;
-            this.stanbies[elementID].style.position = "fixed";
-            this.stanbies[elementID].style.zIndex = "10000";
-            this.stanbies[elementID].style.top = `${target.y}px`;
-            this.stanbies[elementID].style.left = `${target.x}px`;
-            this.stanbies[elementID].style.width = `${rect.width}px`;
-            this.stanbies[elementID].style.height = `${rect.height}px`;
+            setElementStyles(this.stanbies[elementID], {
+                "position": "fixed",
+                "z-index": "10000",
+                "top": `${target.y}px`,
+                "left": `${target.x}px`,
+                "width": `${rect.width}px`,
+                "height": `${rect.height}px`,
+            });
+            setElementStyles(target.el, {
+                "opacity": "0",
+            });
             this.stanbyContainer?.appendChild(this.stanbies[elementID]);
-            target.el.style.opacity = '0';
         })
     }
 
     private fixScreen() {
-        document.body.style.overflow = "hidden";
-        document.body.style.height = "100%";
-        document.body.style.minHeight = `${window.innerHeight - 3}px`;
+        setElementStyles(document.body, {
+            "overflow": "hidden",
+            "height": "100%",
+            "min-height": `${window.innerHeight - 3}px`,
+        });
     }
 
     private unfixScreen() {
-        document.body.style.removeProperty("overflow");
-        document.body.style.removeProperty("height");
-        document.body.style.removeProperty("min-height");
+        removeElementStyles(document.body, [
+            "overflow",
+            "height",
+            "min-height",
+        ]);
     }
 
     private async fadeOutContent() {
         const content = this.content;
-
         if (!content) return;
-        let isEnd = false; // TODO: 추후 race condition util 필요
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
 
-        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
-        const timingFunction = this.option.fadeTimingFunction ?? "ease";
-
-        content.style.opacity = "1";
-        content.style.transition = `opacity ${duration} ${timingFunction} 0s`;
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.fadeDuration + 30);
-            content.ontransitionend = () => {
-                content.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
-            }
-
-            requestAnimationFrame(() => {
-                content.style.opacity = "0";
-            });
+        return transitionElement({
+            target: content,
+            transition: {
+                target: "opacity",
+                duration: this.option.fadeDuration,
+                timingFunction: this.option.fadeTimingFunction,
+            },
+            styles: {
+                "opacity": "0",
+            },
+            readyStyles: {
+                "opacity": "1",
+            },
         });
     }
 
@@ -166,241 +165,144 @@ export class LayerTransition {
         const content = this.content;
 
         if (!content) return;
-        let isEnd = false; // TODO: 추후 race condition util 필요
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
-
-        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
-        const timingFunction = this.option.fadeTimingFunction ?? "ease";
-
-        content.style.opacity = "0";
-        content.style.transition = `opacity ${duration} ${timingFunction} 0s`;
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.fadeDuration + 30);
-            content.ontransitionend = () => {
-                content.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
-            }
-
-            requestAnimationFrame(() => {
-                content.style.opacity = "1";
-            });
+        return transitionElement({
+            target: content,
+            transition: {
+                target: "opacity",
+                duration: this.option.fadeDuration,
+                timingFunction: this.option.fadeTimingFunction,
+            },
+            styles: {
+                "opacity": "1",
+            },
+            readyStyles: {
+                "opacity": "0",
+            },
         });
     }
  
     private async moveStanbiesForward() {
-        let isEnd = false;
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
+        const transitionSpecs: Array<TransitionSpec> = [];
 
-        const elementIDs = Object.keys(this.stanbies);
-        const d: Array<Array<number>> = [];
-        let elLastStanby: HTMLElement;
-        
-        elementIDs.forEach((elementID, i) => {
+        Object.keys(this.stanbies).forEach(elementID => {
             const target = this.targets[elementID];
             const next = this.nexts[elementID];
             const stanby = this.stanbies[elementID];
 
-            if (i === elementIDs.length - 1) {
-                elLastStanby = stanby;
-            }
-            
             const rect = next.el.getBoundingClientRect();
-            const duration = `${(this.option.moveDuration / 1000).toFixed(1)}s`;
-            const timingFunction = this.option.moveTimingFunction ?? "ease";
-
             next.x = rect.left ?? rect.x;
             next.y = rect.top ?? rect.y;
-            d[i] = [next.x - target.x, next.y - target.y];
+            const d = [next.x - target.x, next.y - target.y];
 
+            transitionSpecs.push({
+                target: stanby,
+                transition: {
+                    target: "transform",
+                    duration: this.option.moveDuration,
+                    timingFunction: this.option.moveTimingFunction,
+                },
+                styles: {
+                    "transform": `translate(${d[0]}px, ${d[1]}px)`,
+                }
+            });
             if (elementID === "title") {
                 const elText = (stanby.firstElementChild as HTMLElement);
-                elText.style.transformOrigin = "left";
-                elText.style.transition = `transform ${duration} ${timingFunction} 0s`;
+
+                transitionSpecs.push({
+                    target: elText,
+                    transition: {
+                        target: "transform",
+                        duration: this.option.moveDuration,
+                        timingFunction: this.option.moveTimingFunction,
+                    },
+                    styles: {
+                        "transform": "scale(1.1)",
+                    },
+                    readyStyles: {
+                        "transform-origin": "left",
+                    },
+                });
             }
-            stanby.style.transition = `transform ${duration} ${timingFunction} 0s`;
         });
 
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.moveDuration + 30);
-            elLastStanby.ontransitionend = () => {
-                elLastStanby.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
-            }
-
-            requestAnimationFrame(() => {
-                elementIDs.forEach((elementID, i) => {
-                    const stanby = this.stanbies[elementID];
-                    const [x, y] = d[i];
-
-                    stanby.style.transform = `translate(${x}px, ${y}px)`;
-                    if (elementID === "title") {
-                        const elText = (stanby.firstElementChild as HTMLElement);
-                        elText.style.transform = 'scale(1.1)';
-                    }
-                });
-            });
-        })
+        return transitionElements(transitionSpecs);
     }
 
     private async moveStanbiesBackward() {
-        let isEnd = false;
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
+        const transitionSpecs: Array<TransitionSpec> = [];
 
-        const elementIDs = Object.keys(this.stanbies);
-        let elLastStanby: HTMLElement;
-        
-        elementIDs.forEach((elementID, i) => {
+        Object.keys(this.stanbies).forEach(elementID => {
             const next = this.nexts[elementID];
             const stanby = this.stanbies[elementID];
-
-            if (i === elementIDs.length - 1) {
-                elLastStanby = stanby;
-            }
-            
             const rect = next.el.getBoundingClientRect();
-            const duration = `${(this.option.moveDuration / 1000).toFixed(1)}s`;
-            const timingFunction = this.option.moveTimingFunction ?? "ease";
-
             next.x = rect.left ?? rect.x;
             next.y = rect.top ?? rect.y;
 
+            transitionSpecs.push({
+                target: stanby,
+                transition: {
+                    target: "transform",
+                    duration: this.option.moveDuration,
+                    timingFunction: this.option.moveTimingFunction,
+                },
+                styles: {
+                    "transform": "translate(0, 0)",
+                }
+            });
             if (elementID === "title") {
                 const elText = (stanby.firstElementChild as HTMLElement);
-                elText.style.transformOrigin = "left";
-                elText.style.transition = `transform ${duration} ${timingFunction} 0s`;
+
+                transitionSpecs.push({
+                    target: elText,
+                    transition: {
+                        target: "transform",
+                        duration: this.option.moveDuration,
+                        timingFunction: this.option.moveTimingFunction,
+                    },
+                    styles: {
+                        "transform": "scale(1)",
+                    },
+                    readyStyles: {
+                        "transform-origin": "left",
+                    },
+                });
             }
-            stanby.style.transition = `transform ${duration} ${timingFunction} 0s`;
         });
 
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.moveDuration + 30);
-            elLastStanby.ontransitionend = () => {
-                elLastStanby.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
-            }
-
-            requestAnimationFrame(() => {
-                elementIDs.forEach((elementID, i) => {
-                    const stanby = this.stanbies[elementID];
-
-                    stanby.style.transform = `translate(0, 0)`;
-                    if (elementID === "title") {
-                        const elText = (stanby.firstElementChild as HTMLElement);
-                        elText.style.transform = 'scale(1)';
-                    }
-                });
-            });
-        })
+        return transitionElements(transitionSpecs);
     }
 
     private async fadeInLayer() {
         const layer = this.layer;
-
         if (!layer) return;
 
-        let isEnd = false;
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
-
-        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
-        const timingFunction = this.option.fadeTimingFunction ?? "ease";
-
-        layer.style.transition = `opacity ${duration} ${timingFunction} 0s`;
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.moveDuration + 30);
-            layer.ontransitionend = () => {
-                layer.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
+        return transitionElement({
+            target: layer,
+            transition: {
+                target: "opacity",
+                duration: this.option.fadeDuration,
+                timingFunction: this.option.fadeTimingFunction,
+            },
+            styles: {
+                "opacity": "1",
             }
-
-            requestAnimationFrame(() => {
-                layer.style.opacity = "1";
-            })
         });
     }
 
     private async fadeOutLayer() {
         const layer = this.layer;
-
         if (!layer) return;
 
-
-        let isEnd = false;
-        let timer: NodeJS.Timeout;
-        const end = () => {
-            if (isEnd) return false;
-            isEnd = true;
-            clearTimeout(timer);
-            return true;
-        } 
-
-        const duration = `${(this.option.fadeDuration / 1000).toFixed(1)}s`;
-        const timingFunction = this.option.fadeTimingFunction ?? "ease";
-
-        layer.style.transition = `opacity ${duration} ${timingFunction} 0s`;
-        return new Promise<void>(resolve => {
-            timer = setTimeout(() => {
-                if (end()) {
-                    resolve();
-                }
-            }, this.option.moveDuration + 30);
-            layer.ontransitionend = () => {
-                layer.ontransitionend = null;
-                if (end()) {
-                    resolve();
-                }
+        return transitionElement({
+            target: layer,
+            transition: {
+                target: "opacity",
+                duration: this.option.fadeDuration,
+                timingFunction: this.option.fadeTimingFunction,
+            },
+            styles: {
+                "opacity": "0",
             }
-
-            requestAnimationFrame(() => {
-                layer.style.opacity = "0";
-            })
         });
     }
 
@@ -420,13 +322,10 @@ export class LayerTransition {
 
     private clearStanbies() {
         if (!this.stanbyContainer) return;
-        Array.prototype.slice.call(this.stanbyContainer.children).forEach(child => {
-            this.stanbyContainer!.removeChild(child);
-        });
-        this.stanbyContainer.style.removeProperty("display");
+        removeElementChildren(this.stanbyContainer);
+        removeElementStyles(this.stanbyContainer, ["display"]);
         Object.keys(this.targets).forEach(elementID => {
-            const target = this.targets[elementID];
-            target.el.style.removeProperty("opacity");
-        })
+            removeElementStyles(this.targets[elementID].el, ["opacity"]);
+        });
     }
 }

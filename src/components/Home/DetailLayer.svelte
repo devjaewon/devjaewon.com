@@ -98,7 +98,7 @@ onMount(() => {
     transform: translate(-50%, 0);
     opacity: 0;
     .inner {
-        padding: 20px 20px;
+        padding: 20px 24px;
     }
     .box {
         position: relative;
