@@ -1,14 +1,14 @@
 <div class="work-experience">
     <div class="main">
-        <div class="heading">
+        <div class="header">
             <div class="logo-wrap">
                 <div class={data.logo.useBorder ? "logo use-border" : "logo"}>
                     <img
                         class="img"
                         src={data.logo.imageUrl}
                         alt=""
-                        width=48
-                        height=48
+                        width=62
+                        height=62
                     >
                 </div>
             </div>
@@ -21,20 +21,25 @@
                 </strong>
             </div>
         </div>
-        <div class="summary">
-            <Summary paragraphs={[data.summary]} />
-        </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title"><span class="txt">역할</span></h3>
+        <strong class="heading"><span class="txt">요약</span></strong>
         <div class="contents">
             <div class="content">
-                <Summary small={true} paragraphs={[data.role]} />
+                <Summary paragraphs={[data.summary]} />
             </div>
         </div>
     </div>
     <div class="sub-section">
-        <h3 class="sub-section-title"><span class="txt">프로젝트</span></h3>
+        <strong class="heading"><span class="txt">역할</span></strong>
+        <div class="contents">
+            <div class="content">
+                <Summary paragraphs={[data.role]} />
+            </div>
+        </div>
+    </div>
+    <div class="sub-section">
+        <strong class="heading"><span class="txt">프로젝트</span></strong>
         <div class="contents">
             {#each data.projects as project}
             <div class="content">
@@ -67,7 +72,7 @@ export let data: WorkExperience = {
 </script>
 
 <style lang="scss">
-.heading {
+.header {
     .logo-wrap {
         float: left;
         padding-right: 12px;
@@ -75,13 +80,13 @@ export let data: WorkExperience = {
     .logo {
         overflow: hidden;
         position: relative;
-        width: 48px;
-        height: 48px;
+        width: 62px;
+        height: 62px;
         border-radius: 50%;
         .img {
             display: block;
-            width: 48px;
-            height: 48px;
+            width: 100%;
+            height: 100%;
         }
         &.use-border::after {
             content: '';
@@ -96,6 +101,7 @@ export let data: WorkExperience = {
     }
     .info {
         overflow: hidden;
+        padding-top: 2px;
     }
     &::after {
         content: '';
@@ -106,8 +112,8 @@ export let data: WorkExperience = {
 .period {
     display: block;
     font-weight: 300;
-    font-size: 15px;
-    letter-spacing: 1px;
+    font-size: 17px;
+    letter-spacing: 2px;
     color: #000;
 }
 .title {
@@ -116,39 +122,38 @@ export let data: WorkExperience = {
     margin-top: 4px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-family: 'GmarketSans', sans-serif;
     .txt {
         display: inline-block;
-        height: 28px;
+        height: 36px;
         font-weight: 700;
         vertical-align: top;
         color: #000;
     }
     .corp {
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 26px;
+        line-height: 36px;
     }
     .div {
         display: inline-block;
-        width: 3px;
-        height: 16px;
-        border-radius: 1.5px;
-        margin: 7px 6px 0;
+        width: 5px;
+        height: 20px;
+        border-radius: 2.5px;
+        margin: 9px 6px 0;
         background-color: #000;
         transform: rotate(20deg);
     }
     .position {
-        font-size: 16px;
-        line-height: 31px;
+        font-size: 20px;
+        line-height: 41px;
     }
-}
-.summary {
-    margin-top: 12px;
 }
 .sub-section {
     position: relative;
     margin-top: 18px;
     border-radius: 2px;
-    .sub-section-title {
+    .heading {
+        display: block;
         .txt {
             display: inline-block;
             height: 26px;

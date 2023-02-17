@@ -7,8 +7,8 @@
                         class="img"
                         src={data.logo.imageUrl}
                         alt=""
-                        width=48
-                        height=48
+                        width=62
+                        height=62
                     >
                 </div>
             </div>
@@ -16,10 +16,11 @@
                 <em class="period">{data.period}</em>
                 <strong class="title">
                     <span class="organizer txt">{data.organizer}</span>
-                    <span class="div"></span>
-                    <span class="course txt">{data.course}</span>
                 </strong>
             </div>
+        </div>
+        <div class="course">
+            <span class="txt">{data.course}</span>
         </div>
         <div class="summary">
             <Summary paragraphs={[data.summary]} />
@@ -52,13 +53,13 @@ export let data: Education = {
     .logo {
         overflow: hidden;
         position: relative;
-        width: 48px;
-        height: 48px;
+        width: 62px;
+        height: 62px;
         border-radius: 50%;
         .img {
             display: block;
-            width: 48px;
-            height: 48px;
+            width: 100%;
+            height: 100%;
         }
         &.use-border::after {
             content: '';
@@ -73,6 +74,7 @@ export let data: Education = {
     }
     .info {
         overflow: hidden;
+        padding-top: 2px;
     }
     &::after {
         content: '';
@@ -83,8 +85,8 @@ export let data: Education = {
 .period {
     display: block;
     font-weight: 300;
-    font-size: 15px;
-    letter-spacing: 1px;
+    font-size: 17px;
+    letter-spacing: 2px;
     color: #000;
 }
 .title {
@@ -93,32 +95,36 @@ export let data: Education = {
     margin-top: 4px;
     white-space: nowrap;
     text-overflow: ellipsis;
+    font-family: 'GmarketSans', sans-serif;
     .txt {
         display: inline-block;
-        height: 28px;
+        height: 36px;
         font-weight: 700;
         vertical-align: top;
         color: #000;
     }
     .organizer {
-        font-size: 20px;
-        line-height: 28px;
+        font-size: 26px;
+        line-height: 36px;
     }
-    .div {
+}
+.course {
+    margin-top: 18px;
+    .txt {
         display: inline-block;
-        width: 3px;
-        height: 16px;
-        border-radius: 1.5px;
-        margin: 7px 6px 0;
-        background-color: #000;
-        transform: rotate(20deg);
-    }
-    .course {
-        font-size: 16px;
-        line-height: 31px;
+        height: 26px;
+        padding: 4px 8px;
+        border-radius: 2px;
+        background-color: #343434;
+        font-family: 'GmarketSans', sans-serif;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        vertical-align: top;
+        color: #fffefd;
     }
 }
 .summary {
-    margin-top: 12px;
+    margin-top: 8px;
 }
 </style>
