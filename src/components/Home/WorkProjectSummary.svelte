@@ -50,7 +50,7 @@
         </div>
         <div class="area-buttons">
             <button class="btn-detail" type="button" on:click={handleClickDetailButton}>
-                <span class="text">자세히 보기</span>
+                <span class="text">주요 고민점 및 데모 보기</span>
                 <img class="icon" src="/images/icon/arrow_right.svg" width="14" height="14" alt="">
             </button>
         </div>

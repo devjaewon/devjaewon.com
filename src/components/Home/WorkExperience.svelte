@@ -39,7 +39,7 @@
         </div>
     </div>
     <div class="sub-section">
-        <strong class="heading"><span class="txt">프로젝트</span></strong>
+        <strong class="heading"><span class="txt">주요 프로젝트</span></strong>
         <div class="contents">
             {#each data.projects as project}
             <div class="content">
