@@ -113,6 +113,7 @@ onMount(() => {
         display: block;
         width: 100%;
         overflow: hidden;
+        font-family: 'GmarketSans', sans-serif;
         font-size: 15px;
         line-height: 24px;
         font-weight: 500;

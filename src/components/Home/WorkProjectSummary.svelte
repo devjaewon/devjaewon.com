@@ -1,16 +1,11 @@
 <div class="work-project-summary" bind:this={elRoot}>
     <a href={"javascript:void(0)"} class="button" on:click={handleClickButton}>
-        <span class="button-text-wrap" data-target="title">
-            <span class="button-text">{data.title}</span>
+        <span class="btn-txt" data-target="title">
+            <span class="txt">{data.title}</span>
         </span>
     </a>
     <span class="arrow" bind:this={elArrow}>
-        <svg xmlns="http://www.w3.org/2000/svg" width="7px" height="12px" viewBox="0 0 14 24" fill="none">
-            <g>
-                <path d="M2 2L12 12" stroke="#333333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M2 22L12 12" stroke="#333333" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            </g>
-        </svg>
+        <img class="img" src="/images/icon/arrow_right.png" width="7" height="12" alt="펼쳐보기">
     </span>
     {#if isOpened}
     <div
@@ -139,42 +134,45 @@ function _computeDescOpacity(x: number) {
     z-index: 1;
     width: 100%;
     height: 24px;
-    padding-left: 23px;
+    outline: none;
+    padding-left: 16px;
     text-align: left;
     cursor: pointer;
 }
-.button-text-wrap {
+.btn-txt {
     display: block;
-}
-.button-text {
-    display: block;
-    width: 100%;
-    overflow: hidden;
-    font-size: 15px;
-    line-height: 24px;
-    font-weight: 500;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    color: #000;
+    height: 24px;
+    .txt {
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        font-family: 'GmarketSans', sans-serif;
+        font-size: 15px;
+        line-height: 24px;
+        font-weight: 500;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        color: #000;
+    }
 }
 .arrow {
     position: absolute;
     top: 6px;
-    left: 7px;
+    left: 1px;
     width: 7px;
     height: 12px;
     transform-origin: center;
-    svg {
+    .img {
         display: block;
-        width: 7px;
-        height: 12px;
+        width: 100%;
+        height: 100%;
     }
 }
 .detail {
-    margin-top: 10px;
+    margin-top: 8px;
 }
 .area-desc {
-    padding: 0 6px 14px;
+    padding: 0 6px 8px;
     .desc {
         word-break: keep-all;
         font-weight: 400;
@@ -184,7 +182,7 @@ function _computeDescOpacity(x: number) {
     }
 }
 .area-skills {
-    padding: 0 6px 12px;
+    padding: 0 6px 4px;
 }
 .skills {
     background-color: #f5f6f7;

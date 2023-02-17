@@ -14,10 +14,10 @@
         </div>
         <div class="experience page">
             <div class="scroller">
-                <button class="btn-prev" type="button" on:click={() => movePage(1)}>
-                    <img class="img" width="30" height="30" src="/images/icon/arrow_up.png" alt="이전">
-                </button>
                 <div class="content _content">
+                    <button class="btn-prev" type="button" on:click={() => movePage(1)}>
+                        <img class="img" width="30" height="30" src="/images/icon/arrow_up.png" alt="이전">
+                    </button>
                     <div class="section">
                         <WorkExperiences />
                     </div>

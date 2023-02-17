@@ -77,7 +77,6 @@ export class LayerTransition {
         if (!requestAnimationFrame) return;
 
         this.copyStanbyForMoving();
-        this.fixScreen();
         await this.fadeOutContent();
         await this.moveStanbiesForward();
         await this.fadeInLayer();
@@ -91,7 +90,6 @@ export class LayerTransition {
         await this.fadeOutLayer();
         await this.moveStanbiesBackward();
         await this.fadeInContent();
-        this.unfixScreen();
         this.clear();
 
         return new Promise<void>(resolve => {
