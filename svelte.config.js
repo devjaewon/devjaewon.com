@@ -6,8 +6,8 @@ const config = {
 	preprocess: vitePreprocess(),
 	kit: {
 		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
+			pages: '.svelte-kit/cloudflare',
+			assets: '.svelte-kit/cloudflare',
 			fallback: null, // static site generater 로 사용하고 있기 때문에 의미 없음.
 			precompress: false,
 			strict: true,
