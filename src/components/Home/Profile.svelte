@@ -4,8 +4,8 @@
             <img
                 class="img"
                 src="/images/profile.jpg"
-                width=94
-                height=94
+                width=150
+                height=150
                 alt="프로필"
             >
         </div>
@@ -14,8 +14,8 @@
         <h2 class="name">김재원</h2>
         <em class="role"><span class="text">소프트웨어 엔지니어</span></em>
         <div class="role-subs">
-            <em class="role role-sub"><span class="text">#</span><span class="text">front-end-focused</span></em>
-            <em class="role role-sub"><span class="text">#</span><span class="text">broad-knowledge-oriented</span></em>
+            <em class="role-sub"><span class="text">#</span><span class="text">Front-end focused</span></em>
+            <em class="role-sub"><span class="text">#</span><span class="text">Broad knowledge oriented</span></em>
         </div>
     </div>
 </section>
@@ -34,19 +34,9 @@
     .figure {
         overflow: hidden;
         position: relative;
-        width: 94px;
-        height: 94px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
-        &::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-        }
     }
     .img {
         display: block;
@@ -56,46 +46,44 @@
 }
 .area-desc {
     overflow: hidden;
-    padding-left: 14px;
+    padding-left: 24px;
     font-size: 0;
     .name {
         display: block;
         margin-bottom: 4px;
-        font-family: 'Gowun Dodum', sans-serif;
         font-weight: 700;
-        font-size: 22px;
-        color: #000;
+        font-size: 52px;
+        color: #fffefd;
     }
 }
 .role {
     display: block;
-    padding-left: 1px;
+    margin-top: 8px;
+    padding-left: 2px;
     .text {
         display: inline-block;
-        font-family: 'Gowun Dodum', sans-serif;
         font-weight: 700;
-        font-size: 17px;
-        line-height: 23px;
-        color: #5a5a5a;
+        font-size: 28px;
+        color: #bababa;
         vertical-align: top;
     }
 }
 .role-subs {
-    margin-top: 4px;
+    margin-top: 6px;
 }
 .role-sub {
     display: block;
-    padding-left: 3px;
+    padding-left: 2px;
     .text {
         display: inline-block;
-        font-weight: 300;
-        font-size: 15px;
+        font-weight: 400;
+        font-size: 16px;
         line-height: 1.4;
-        color: #999;
+        color: #8a8a8a;
         vertical-align: top;
     }
     .text + .text {
-        margin-left: 2px;
+        margin-left: 4px;
     }
 }
 </style>

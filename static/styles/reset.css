@@ -1,22 +1,36 @@
 @font-face {
     font-family: 'SpoqaHanSansNeo';
-    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Light.woff2') format('woff2'),
-        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Light.woff') format('woff');
+    src: url('/fonts/SpoqaHanSansNeo-Light.woff2') format('woff2'),
+        url('/fonts/SpoqaHanSansNeo-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
 @font-face {
     font-family: 'SpoqaHanSansNeo';
-    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
-        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Regular.woff') format('woff');
+    src: url('/fonts/SpoqaHanSansNeo-Regular.woff2') format('woff2'),
+        url('/fonts/SpoqaHanSansNeo-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
     font-family: 'SpoqaHanSansNeo';
-    src: url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
-        url('https://pub-987c950e405048c9a4608dfc03315d7e.r2.dev/SpoqaHanSansNeo-Medium.woff') format('woff');
+    src: url('/fonts/SpoqaHanSansNeo-Medium.woff2') format('woff2'),
+        url('/fonts/SpoqaHanSansNeo-Medium.woff') format('woff');
     font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/fonts/GmarketSansMedium.woff2') format('woff2'),
+        url('/fonts/GmarketSansMedium.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'GmarketSans';
+    src: url('/fonts/GmarketSansBold.woff2') format('woff2'),
+        url('/fonts/GmarketSansBold.woff') format('woff');
+    font-weight: 700;
     font-style: normal;
 }
 * {

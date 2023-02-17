@@ -139,7 +139,6 @@ function _computeDescOpacity(x: number) {
     z-index: 1;
     width: 100%;
     height: 24px;
-    margin-bottom: 10px;
     padding-left: 23px;
     text-align: left;
     cursor: pointer;
@@ -170,6 +169,9 @@ function _computeDescOpacity(x: number) {
         width: 7px;
         height: 12px;
     }
+}
+.detail {
+    margin-top: 10px;
 }
 .area-desc {
     padding: 0 6px 14px;

@@ -146,7 +146,7 @@ export let data: WorkExperience = {
 }
 .sub-section {
     position: relative;
-    margin-top: 28px;
+    margin-top: 18px;
     border-radius: 2px;
     .sub-section-title {
         .txt {
@@ -155,15 +155,16 @@ export let data: WorkExperience = {
             padding: 4px 8px;
             border-radius: 2px;
             background-color: #343434;
-            font-family: 'Gowun Dodum', sans-serif;
-            font-size: 14px;
+            font-family: 'GmarketSans', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
             line-height: 18px;
             vertical-align: top;
             color: #fffefd;
         }
     }
     .content:first-child {
-        margin-top: 12px;
+        margin-top: 8px;
     }
     .content + .content {
         margin-top: 4px;

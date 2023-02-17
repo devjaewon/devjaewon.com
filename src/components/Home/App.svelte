@@ -1,40 +1,40 @@
-<div class="wrap">
-    <button
-        class="btn-animation-toggle"
-        type="button"
-        on:click={onClickBtnAnimationToggle}
-    >배경 {useBackgroundAnimation ? 'OFF' : 'ON'}</button>
-    <div class="header">
-        <Header />
-    </div>
-    <div class="inner">
-        {#if useBackgroundAnimation}
-        <div class="bg">
-            <AppBackground />
+<div class="wrap" bind:this={elWrap} style="transform: translate3d(0, 0, 0)">
+    <div class="pages">
+        <div class="home page">
+            <div class="bg">
+                <AppBackground />
+            </div>
+            <div class="abount-me">
+                <AboutMe />
+            </div>
+            <button class="btn-next" type="button" on:click={() => movePage(2)}>
+                <img class="img" width="30" height="30" src="/images/icon/arrow_down.png" alt="다음">
+                <span class="bar"></span>
+            </button>
         </div>
-        {/if}
-        <div id="content" class="main">
-            <div class="sections _content">
-                <div class="section">
-                    <AboutMe />
-                </div>
-                <div class="section">
-                    <WorkExperiences />
-                </div>
-                <div class="section">
-                    <Educations />
+        <div class="experience page">
+            <div class="scroller">
+                <button class="btn-prev" type="button" on:click={() => movePage(1)}>
+                    <img class="img" width="30" height="30" src="/images/icon/arrow_up.png" alt="이전">
+                </button>
+                <div class="content _content">
+                    <div class="section">
+                        <WorkExperiences />
+                    </div>
+                    <div class="section">
+                        <Educations />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    {#if layerState !== null}
-    <DetailLayer state={layerState} />
-    {/if}
 </div>
+{#if layerState !== null}
+<DetailLayer state={layerState} />
+{/if}
 <div id="_stanbies"></div>
 
 <script lang="ts">
-import Header from '@/components/common/Header.svelte';
 import AboutMe from "./AboutMe.svelte";
 import AppBackground from './AppBackground.svelte';
 import WorkExperiences from "./WorkExperiences.svelte";
@@ -42,37 +42,42 @@ import Educations from './Educations.svelte';
 import DetailLayer from './DetailLayer.svelte';
 import { layer, LayerState } from '@/store';
 
-let useBackgroundAnimation = true;
 let layerState: LayerState | null;
+let elWrap: HTMLElement;
 
 layer.subscribe((state) => {
     layerState = state;
 });
 
-function onClickBtnAnimationToggle() {
-    useBackgroundAnimation = !useBackgroundAnimation;
+function movePage(page: number) {
+    const y = -1 * (page - 1) * 100;
+    const yValue = y === 0 ? y : `${y}%`;
+
+    elWrap.style.setProperty("transform", `translate3d(0, ${yValue}, 0)`)
 }
 </script>
 
 <style lang="scss">
+:global(html) {
+    height: 100%;
+}
 :global(body) {
-    background-color: #333;
+    overflow: hidden;
+    height: 100%;
+    background-color: #212233;
 }
 .wrap {
-    position: relative;
-    background-color: #333;
+    height: 100%;
+    background-color: #212233;
+    transition: transform 0.5s ease 0s;
+    .pages {
+        height: 100%;
+    }
+    .page {
+        height: 100%;
+    }
 }
-.header {
-    position: absolute;
-    z-index: 10000;
-    top: 0;
-    left: 50%;
-    width: 100%;
-    max-width: 620px;
-    background-color: #fffefd;
-    transform: translate(-50%, 0);
-}
-.inner {
+.home {
     position: relative;
     .bg {
         position: absolute;
@@ -81,36 +86,55 @@ function onClickBtnAnimationToggle() {
         bottom: 0;
         left: 0;
     }
-    .main {
-        position: relative;
-        z-index: 1;
+    .btn-next {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 70px;
+        text-align: center;
+        .img {
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+        }
+        .bar {
+            display: block;
+            width: 40px;
+            height: 5px;
+            margin: 0 auto;
+            border-radius: 2.5px;
+            background-color: #fffefd;
+        }
+    }
+}
+.experience {
+    position: relative;
+    background-color: #fffefd;
+    .scroller {
+        height: 100%;
+        padding: 0 0 30px;
+        overflow-y: auto;
+    }
+    .btn-prev {
+        display: block;
+        width: 100%;
+        height: 46px;
+        text-align: center;
+        .img {
+            display: block;
+            width: 30px;
+            height: 30px;
+            margin: 0 auto;
+        }
+    }
+    .content {
         max-width: 620px;
         margin: 0 auto;
-        padding: 52px 0 60px 0;
-        background-color: #fffefd;
-    }
-}
-.section {
-    margin-top: 80px;
-    &:first-child {
-        margin-top: 12px;
-    }
-}
-.btn-animation-toggle {
-    position: fixed;
-    z-index: 10001;
-    top: 10px;
-    right: 12px;
-    border-radius: 1px;
-    padding: 0 14px;
-    background-color: #ededed;
-    font-family: 'Gowun Dodum', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 32px;
-    cursor: pointer;
-    @media screen and (max-width: 718px) {
-        display: none;
+        .section + .section {
+            margin-top: 120px;
+        }
     }
 }
 </style>
