@@ -70,7 +70,7 @@ let elRoot: HTMLElement;
 let elArrow: HTMLElement;
 let isOpened = false;
 
-$ : (skills = data.skills.slice(0, 3));
+$ : (skills = data.skills.slice(0, 4));
 
 function handleClickButton(e: MouseEvent) {
     e.preventDefault();
