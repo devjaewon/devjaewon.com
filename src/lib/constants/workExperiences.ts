@@ -62,7 +62,7 @@ export const workExperiences: Array<WorkExperience> = [
             {
                 title: '이미지 검색 / 렌즈 검색 FE',
                 description: '이미지와 이미지 상의 디텍팅 된 오브젝트 또는 텍스트(OCR) 정보를 검색하는 서비스의 FE 영역을 전담',
-                skills: [SKILL.TYPESCRIPT, SKILL.REACT, SKILL.CHROMIUM, SKILL.JAVASCRIPT, SKILL.RXJS, SKILL.NODE],
+                skills: [SKILL.TYPESCRIPT, SKILL.CHROMIUM, SKILL.REACT, SKILL.RXJS, SKILL.NODE],
             },
             {
                 title: '브라우저 에러 모니터링 시스템',
@@ -95,7 +95,7 @@ export const workExperiences: Array<WorkExperience> = [
             {
                 title: 'jQuery 기반에서 리액트 기반으로 전환',
                 description: 'HTML/jQuery/Gulp 기반 협업 구조에서 React/Webpack 기반 협업 구조로 개선',
-                skills: [SKILL.GULP, SKILL.WEBPACK, SKILL.REACT],
+                skills: [SKILL.GULP, SKILL.WEBPACK, SKILL.REACT, SKILL.JQUERY],
             },
             {
                 title: '정적 사이트 생성기',
