@@ -53,9 +53,9 @@
 </div>
 
 <script lang="ts">
-import Summary from "../common/atomic/Summary.svelte";
+import Summary from "@components/common/atomic/Summary.svelte";
+import type { WorkExperience } from "@constants";
 import WorkProjectSummary from "./WorkProjectSummary.svelte";
-import type { WorkExperience } from "../../types/struct";
 
 export let data: WorkExperience = {
     period: '',

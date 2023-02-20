@@ -1,4 +1,6 @@
-import type { AsEngineer } from "../types/struct";
+export interface AsEngineer {
+    text: string;
+}
 
 export const asEngineer: Array<AsEngineer> = [
     { text: "지표 기반의 문제해결과 지속적 개선을 고민합니다" },

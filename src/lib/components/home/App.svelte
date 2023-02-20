@@ -40,7 +40,7 @@ import AppBackground from './AppBackground.svelte';
 import WorkExperiences from "./WorkExperiences.svelte";
 import Educations from './Educations.svelte';
 import DetailLayer from './DetailLayer.svelte';
-import { layer, LayerState } from '../../store';
+import { layer, LayerState } from '@store';
 
 let layerState: LayerState | null;
 let elWrap: HTMLElement;

@@ -1,6 +1,10 @@
-import type { LayerTransition } from "../components/common/animation/LayerTransition";
-import { LayerType, type WorkProject } from "../types";
 import { writable } from "svelte/store";
+import type { WorkProject } from "@constants";
+import type { LayerTransition } from "@components/common/animation/LayerTransition";
+
+export enum LayerType {
+    WorkProjectDetail,
+}
 
 export class LayerState {
     constructor(
