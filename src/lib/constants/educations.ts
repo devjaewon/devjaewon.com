@@ -1,4 +1,13 @@
-import type { Education } from "../types/struct";
+export interface Education {
+    period: string;
+    logo: {
+        imageUrl: string;
+        useBorder: boolean;
+    }
+    organizer: string;
+    course: string;
+    summary: string;
+};
 
 export const educations: Array<Education> = [
     {

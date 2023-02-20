@@ -55,11 +55,10 @@
 
 <script lang="ts">
 import { cubicInOut } from "svelte/easing";
-import { skillsMap } from "../../static/skills";
-import { LayerTransition } from "../common/animation/LayerTransition";
-import type { WorkProject } from "../../types/struct";
 import type { TransitionConfig } from "svelte/types/runtime/transition";
-import { layer, LayerState } from "../../store";
+import { skillsMap, type WorkProject } from "@constants";
+import { LayerTransition } from "@components/common/animation/LayerTransition";
+import { layer, LayerState } from "@store";
 
 const duration = 200;
 const BIF_FIRST = 0.4;
