@@ -17,7 +17,34 @@
             />
         </button>
         <div class="area-video">
-            <div class="video"></div>
+            {#if (data.demo)}
+            <div class="demo-video-wrap">
+                <div class="demo-video-fill"></div>
+                <div class="demo-video">
+                    <video-js
+                        id="demo-player"
+                        controls="true"
+                        preload="auto"
+                        poster={data.demo.posterUrl}>
+                        <source src={data.demo.videoUrl} type="video/mp4" />
+                    </video-js>
+                </div>
+            </div>
+            {:else}
+            <div class="demo-video-wrap">
+                <div class="demo-video-fill empty"></div>
+                <div class="notice">
+                    <img
+                        class="img"
+                        src="/images/icon/video.svg"
+                        width="84"
+                        height="60"
+                        alt="데모영상 없음"
+                    >
+                    <p class="txt">등록된 데모 영상이 없습니다</p>
+                </div>
+            </div>
+            {/if}
         </div>
         <div class="box">
             <div class="detail">
@@ -56,13 +83,17 @@
 </div>
 
 <script lang="ts">
-import { onMount } from "svelte";
+import { onDestroy, onMount } from "svelte";
 import { skillsMap, type WorkProject } from "@constants";
 import { layer, type LayerState } from "@store";
+import { browser } from "$app/environment";
 
 export let state: LayerState;
 let data: WorkProject;
 let elRoot: HTMLElement;
+const _ = {
+    player: null as any,
+};
 
 $ : data = state.data as WorkProject;
 
@@ -81,7 +112,22 @@ onMount(() => {
     state.transition.setLayer(elRoot);
     state.transition.setNexts(nexts);
     state.transition.forward();
+
+    if (browser && data.demo) {
+        _.player = window.videojs('demo-player', {
+            fluid: true,
+            controls: true,
+            preload: 'auto',
+        });
+    }
 });
+
+onDestroy(() => {
+    if (_.player) {
+        _.player.dispose();
+        _.player = null;
+    }
+})
 </script>
 
 <style lang="scss">
@@ -124,12 +170,43 @@ onMount(() => {
     }
 }
 .area-video {
-    height: 240px;
-    padding: 12px 0px 24px;
-}
-.video {
-    height: 100%;
-    background-color: #f2f2f2;
+    padding: 12px 0px 18px;
+    .demo-video-wrap {
+        position: relative;
+    }
+    .demo-video-fill {
+        padding-top: 133.33333333333331%;
+        &.empty {
+            padding-top: 50%;
+            background-color: #000;
+        }
+    }
+    .notice {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        .img {
+            display: block;
+            width: 84px;
+            height: 60px;
+            margin: 0 auto;
+        }
+        .txt {
+            max-width: 200px;
+            margin-top: 14px;
+            font-family: 'GmarketSans', sans-serif;
+            font-size: 13px;
+            color: #eaeaea;
+        }
+    }
+    .demo-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 .area-desc {
     padding: 0 6px 14px;
