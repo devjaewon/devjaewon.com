@@ -131,20 +131,20 @@ export let data: WorkExperience = {
         color: #000;
     }
     .corp {
-        font-size: 26px;
+        font-size: 24px;
         line-height: 36px;
     }
     .div {
         display: inline-block;
-        width: 5px;
+        width: 4px;
         height: 20px;
-        border-radius: 2.5px;
+        border-radius: 2px;
         margin: 9px 6px 0;
         background-color: #000;
         transform: rotate(20deg);
     }
     .position {
-        font-size: 20px;
+        font-size: 18px;
         line-height: 41px;
     }
 }

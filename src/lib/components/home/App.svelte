@@ -58,14 +58,6 @@ function movePage(page: number) {
 </script>
 
 <style lang="scss">
-:global(html) {
-    height: 100%;
-}
-:global(body) {
-    overflow: hidden;
-    height: 100%;
-    background-color: #212233;
-}
 .wrap {
     height: 100%;
     background-color: #212233;
