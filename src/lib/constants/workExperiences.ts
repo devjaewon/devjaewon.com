@@ -74,7 +74,7 @@ export const workExperiences: Array<WorkExperience> = [
             },
             {
                 title: '브라우저 에러 모니터링 시스템',
-                description: 'Sentry와 Puppeteer 오픈소스를 분석하여 에러를 검색 서비스에 적합한 형태로 에러를 수집하고 시각화하는 모듈을 개발',
+                description: 'Sentry와 Puppeteer 오픈소스를 분석하여 검색 서비스에 적합한 형태로 에러를 수집하고 시각화하는 모듈을 개발',
                 skills: [SKILL.TYPESCRIPT, SKILL.SENTRY, SKILL.PUPPETEER, SKILL.GITHUB_ACTIONS],
             },
             {
