@@ -2,6 +2,10 @@ import * as SKILL from "./skills";
 
 export interface WorkProject {
     title: string;
+    demo?: {
+        videoUrl: string;
+        posterUrl: string;
+    }
     description: string;
     skills: Array<string>;
 }
@@ -61,6 +65,10 @@ export const workExperiences: Array<WorkExperience> = [
         projects: [
             {
                 title: '이미지 검색 / 렌즈 검색 FE',
+                demo: {
+                    videoUrl: 'https://assets.devjaewon.com/naver_imagesearch_demo.mp4',
+                    posterUrl: 'https://assets.devjaewon.com/naver_imagesearch_poster.jpg',
+                },
                 description: '이미지와 이미지 상의 디텍팅 된 오브젝트 또는 텍스트(OCR) 정보를 검색하는 서비스의 FE 영역을 전담',
                 skills: [SKILL.TYPESCRIPT, SKILL.CHROMIUM, SKILL.REACT, SKILL.RXJS, SKILL.NODE],
             },
