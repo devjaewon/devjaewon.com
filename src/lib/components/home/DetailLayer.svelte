@@ -1,5 +1,5 @@
 <div class="detail-layer" bind:this={elRoot}>
-    <div class="inner">
+    <div class={isScrolled ? "header floating" : "header"}>
         <h3 class="title" data-target="title">
             <span class="text">{data.title}</span>
         </h3>
@@ -16,6 +16,8 @@
                 alt="닫기"
             />
         </button>
+    </div>
+    <div class="inner" bind:this={elScroller} on:scroll={onScrollInfo}>
         <div class="area-video">
             {#if (data.demo)}
             <div class="demo-video-wrap">
@@ -46,7 +48,7 @@
             </div>
             {/if}
         </div>
-        <div class="box">
+        <div class="area-info">
             <div class="detail">
                 <div class="area-desc" data-target="desc">
                     <p class="desc">{data.description}</p>
@@ -91,6 +93,8 @@ import { browser } from "$app/environment";
 export let state: LayerState;
 let data: WorkProject;
 let elRoot: HTMLElement;
+let elScroller: HTMLElement;
+let isScrolled = false;
 const _ = {
     player: null as any,
 };
@@ -101,6 +105,10 @@ function onClickCloseButton() {
     state.transition.backward().then(() => {
         layer.close();
     });
+}
+
+function onScrollInfo(e: Event) {
+    isScrolled = elScroller.scrollTop > 0;
 }
 
 onMount(() => {
@@ -120,7 +128,10 @@ onMount(() => {
             preload: 'auto',
         });
     }
-});
+    if (browser) {
+        isScrolled = elScroller.scrollTop > 0;
+    }
+ });
 
 onDestroy(() => {
     if (_.player) {
@@ -138,39 +149,67 @@ onDestroy(() => {
     top: 0;
     left: 50%;
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
     background-color: #fffefd;
     transform: translate(-50%, 0);
     opacity: 0;
     .inner {
-        padding: 20px;
-    }
-    .box {
-        position: relative;
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: 100%;
+        padding: 60px 20px 20px;
     }
 }
-.title {
-    height: 24px;
-    margin-bottom: 4px;
+.header {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 52px;
+    padding: 16px 20px 0;
     background-color: #fffefd;
-    cursor: pointer;
-    .text {
-        display: block;
-        width: 100%;
-        overflow: hidden;
-        font-family: 'GmarketSans', sans-serif;
-        font-size: 15px;
-        line-height: 24px;
-        font-weight: 500;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        color: #000;
-        transform: scale(1.1);
-        transform-origin: left;
+    &.floating {
+        border-bottom: 1px solid #f2f2f2;
+    }
+    .title {
+        cursor: pointer;
+        .text {
+            display: block;
+            width: 100%;
+            height: 24px;
+            overflow: hidden;
+            font-family: 'GmarketSans', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 24px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            color: #000;
+            transform: scale(1.1);
+            transform-origin: left;
+        }
+    }
+    .btn-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 52px;
+        cursor: pointer;
+        .img {
+            position: absolute;
+            top: 8px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 28px;
+            height: 28px;
+            margin: auto;
+        }
     }
 }
 .area-video {
-    padding: 12px 0px 18px;
     .demo-video-wrap {
         position: relative;
     }
@@ -208,6 +247,10 @@ onDestroy(() => {
         height: 100%;
     }
 }
+.area-info {
+    position: relative;
+    margin-top: 18px;
+}
 .area-desc {
     padding: 0 6px 14px;
     .desc {
@@ -244,24 +287,6 @@ onDestroy(() => {
     .img {
         display: inline-block;
         vertical-align: middle;
-    }
-}
-.btn-close {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 62px;
-    height: 62px;
-    cursor: pointer;
-    .img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 32px;
-        height: 32px;
-        margin: auto;
     }
 }
 </style>
