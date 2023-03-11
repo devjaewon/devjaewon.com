@@ -24,6 +24,24 @@
         <div class="summary">
             <p class="txt">책과 기술을 좋아하며, 아침 운동 후 커피와 함께 책이나 메일 정리로 하루를 시작하는 것을 좋아합니다.</p>
         </div>
+        <div class="contact">
+            <h3 class="head">Contact</h3>
+            <div class="links">
+                <ul class="list">
+                    <li class="item">
+                        <a href="https://github.com/devjaewon" class="link github">
+                            <img class="icon" src="/images/icon/github.svg" width="24" height="24" alt="">
+                            <span class="txt">devjaewon</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="mailto:devjaewon21@gmail.com" class="link email">
+                            <img class="icon" src="/images/icon/email.svg" width="22" height="22" alt="">
+                            <span class="txt">devjaewon21@gmail.com</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -128,6 +146,48 @@
     }
     .summary .txt {
         font-size: 15px;
+    }
+}
+.contact {
+    margin-top: 24px;
+    .head {
+        font-size: 16px;
+        color: #dddedf;
+    }
+}
+.links {
+    margin-top: 10px;
+    .list {
+        .item + .item {
+            margin-top: 6px;
+        }
+        .link {
+            display: block;
+            font-size: 0;
+            &.email {
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    margin: 2px 9px 0 1px;
+                }
+            }
+        }
+        .icon {
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            margin: 1px 8px 0 0;
+            vertical-align: top;
+        }
+        .txt {
+            display: inline-block;
+            height: 22px;
+            border-bottom: 1px solid #cccdce;
+            font-size: 14px;
+            line-height: 24px;
+            vertical-align: top;
+            color: #cccdce;
+        }
     }
 }
 </style>
