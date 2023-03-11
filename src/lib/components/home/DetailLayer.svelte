@@ -123,8 +123,8 @@ onMount(() => {
 
     if (browser && data.demo) {
         _.player = window.videojs('demo-player', {
-            fluid: true,
             controls: true,
+            aspectRatio: '3:4',
             preload: 'auto',
         });
     }
