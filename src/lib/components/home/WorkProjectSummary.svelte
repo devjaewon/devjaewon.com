@@ -1,12 +1,16 @@
 <div class="work-project-summary" bind:this={elRoot}>
     <a href={"javascript:void(0)"} class="button" on:click={handleClickButton}>
-        <span class="btn-txt" data-target="title">
-            <span class="txt">{data.title}</span>
-        </span>
+        <div class="button-box">
+            <span class="btn-txt" data-target="title">
+                <span class="txt">{data.title}</span>
+            </span>
+        </div>
+        <div class="arrow-box">
+            <span class="arrow" bind:this={elArrow}>
+                <img class="img" src="/images/icon/arrow_right.png" width="7" height="12" alt="펼쳐보기">
+            </span>
+        </div>
     </a>
-    <span class="arrow" bind:this={elArrow}>
-        <img class="img" src="/images/icon/arrow_right.png" width="7" height="12" alt="펼쳐보기">
-    </span>
     {#if isOpened}
     <div
         in:transitionDetail
@@ -128,21 +132,22 @@ function _computeDescOpacity(x: number) {
     position: relative;
 }
 .button {
-    display: block;
-    position: relative;
+    display: flex;
     z-index: 1;
     width: 100%;
     height: 24px;
     outline: none;
-    padding-left: 16px;
     text-align: left;
     cursor: pointer;
+}
+.button-box {
+    flex: 1;
 }
 .btn-txt {
     display: block;
     height: 24px;
     .txt {
-        display: block;
+        display: inline-block;
         width: 100%;
         overflow: hidden;
         font-family: 'GmarketSans', sans-serif;
@@ -154,10 +159,11 @@ function _computeDescOpacity(x: number) {
         color: #000;
     }
 }
+.arrow-box {
+    flex: 0;
+}
 .arrow {
-    position: absolute;
-    top: 6px;
-    left: 1px;
+    display: block;
     width: 7px;
     height: 12px;
     transform-origin: center;
