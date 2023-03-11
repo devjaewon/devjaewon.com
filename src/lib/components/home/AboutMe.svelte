@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="summary">
-            <p class="txt">책과 기술을 좋아하며, 아침 운동 후 커피와 함께 책이나 메일 정리로 하루를 시작하는 것을 좋아합니다.</p>
+            <p class="txt">책과 기술을 좋아하며 매일 아침 운동 후 커피와 함께 하루를 시작합니다. 기술은 주로 시각적인 영역에 관심이 많습니다.</p>
         </div>
         <div class="contact">
             <h3 class="head">Contact</h3>
